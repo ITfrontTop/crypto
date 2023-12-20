@@ -1,0 +1,26 @@
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    width: 1120px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+main {
+    flex-grow: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #151822;
+}
