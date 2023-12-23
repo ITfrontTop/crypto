@@ -1,9 +1,65 @@
 @font-face {
-    font-family: 'Mulish-ExtraLight';
-    font-weight: 200;
+    font-family: 'Hauora-ExtraBold';
+    font-weight: 800;
     font-style: normal;
-    src: local('Mulish-ExtraLight'),
-        url('../fonts/Mulish-ExtraLight.woff2') format('woff2'),
-        url('../fonts/Mulish-ExtraLight.woff') format('woff');
+    src: local('Hauora-ExtraBold'),
+        url('../fonts/Hauora-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Hauora-ExtraBold.woff') format('woff');
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Hauora-Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Hauora-Bold'),
+        url('../fonts/Hauora-Bold.woff2') format('woff2'),
+        url('../fonts/Hauora-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hauora-SemiBold';
+    font-weight: 600;
+    font-style: normal;
+    src: local('Hauora-SemiBold'),
+        url('../fonts/Hauora-SemiBold.woff2') format('woff2'),
+        url('../fonts/Hauora-SemiBold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hauora-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Hauora-Regular'),
+        url('../fonts/Hauora-Regular.woff2') format('woff2'),
+        url('../fonts/Hauora-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+
+
+
+@font-face {
+    font-family: 'Inter-ExtraBold';
+    font-weight: 800;
+    font-style: normal;
+    src: local('Inter-ExtraBold'),
+        url('../fonts/Inter-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Inter-ExtraBold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Inter-Bold'),
+        url('../fonts/Inter-Bold.woff2') format('woff2'),
+        url('../fonts/Inter-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+
+

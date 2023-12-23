@@ -1,0 +1,189 @@
+@import 'vars';
+@import 'fonts';
+
+/* fonts */
+@mixin hauora-800 {
+    font-family: 'Hauora-ExtraBold';
+    font-weight: 800;
+}
+
+@mixin hauora-700 {
+    font-family: 'Hauora-Bold';
+    font-weight: 700;
+}
+
+@mixin hauora-600 {
+    font-family: 'Hauora-SemiBold';
+    font-weight: 600;
+}
+
+@mixin hauora-400 {
+    font-family: 'Hauora-Regular';
+    font-weight: 400;
+}
+
+@mixin inter-800 {
+    font-family: 'Inter-ExtraBold';
+    font-weight: 800;
+}
+
+@mixin inter-700 {
+    font-family: 'Inter-Bold';
+    font-weight: 700;
+}
+
+/* flex */
+@mixin flex-item-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flex-space-between-center {
+    @include flex-item-center;
+    justify-content: space-between;
+}
+
+@mixin flex-center-center {
+    @include flex-item-center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* header-btn */
+@mixin header-bg {
+    background-color: $grey-light;
+    border-radius: 8px;
+    border: 0.5px solid $white;
+    box-shadow: 0px 4px 9px 0px $grey-medium;
+    backdrop-filter: blur(4px);
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        box-shadow: 0px 4px 9px 0px $accent;
+        text-shadow: $accent 0px 0px 9px;
+    }
+
+    &:active {
+        border: 0.5px solid $accent;
+    }
+}
+
+/* gradient text */
+@mixin gradient-text {
+    background: linear-gradient(92deg, $white 29.24%, $grey-hard 131.64%);
+    background-clip: text;
+    color: transparent
+}
+
+@mixin text-color {
+    color: $white;
+    opacity: 0.8;
+}
+
+/* slider btn */
+@mixin slider-btn {
+    display: inline-block;
+    @include hauora-700;
+    /* use clamp() */
+    font-size: 16px;
+    line-height: 16px;
+    padding: 16px 24px;
+
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px 0px $blue-black;
+    background-color: $accent;
+    color: $white;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background-color: $blue;
+    }
+}
+
+/* tips btn */
+@mixin tips-btn {
+    @include hauora-400;
+    display: inline-block;
+    /* use clamp() */
+    font-size: 12px;
+    line-height: 13px;
+    color: $white;
+    background-color: $blue-light;
+    padding: 6px 21px;
+    border-radius: 37px;
+}
+
+/* download btn */
+
+@mixin download-apple-btn {
+    display: inline-block;
+    @include hauora-700;
+    /* use clamp() */
+    font-size: 16px;
+    line-height: 22px;
+    padding: 14px 24px 14px 64px;
+    border-radius: 12px;
+
+    color: $purple-light;
+    background-color: $blue-ease;
+    position: relative;
+    transition: all .1s ease-in-out;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background-image: url(../images/apple-icon-download-purple.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 50%;
+        left: 24px;
+        transform: translateY(-50%);
+    }
+
+    &:hover {
+        color: $white;
+        background-color: $purple-medium;
+
+        &::after {
+            background-image: url(../images/apple-icon-download-white.svg);
+        }
+    }
+}
+
+/* style description */
+@mixin style-text {
+    @include hauora-600;
+    /* use clamp() */
+    font-size: 18px;
+    line-height: 32px;
+
+    @include text-color;
+}
+
+/* style title */
+@mixin style-title {
+    @include inter-700;
+    /* use clamp() */
+    font-size: 42px;
+    line-height: 43px;
+    @include gradient-text;
+}
+
+/* partner img box */
+@mixin partner-img {
+    @include flex-center-center;
+    border-radius: 50%;
+    background-color: $bg;
+    box-shadow: 0px 4px 38px rgba($black, 0.25);
+}

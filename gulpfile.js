@@ -1,5 +1,6 @@
 const {src, dest, watch, parallel, series} = require('gulp');
 
+// Delete SVG function 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
@@ -12,7 +13,7 @@ const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 const fonter = require('gulp-fonter');
 const ttf2woff2 = require('gulp-ttf2woff2');
-const svgSprite = require('gulp-svg-sprite');
+// const svgSprite = require('gulp-svg-sprite');
 
 function fonts() {
     return src('app/fonts/src/*.*')
@@ -40,21 +41,22 @@ function images() {
         .pipe(dest('app/images'))
 }
 
-function sprite() {
-    return src('app/images/*.svg')
-        .pipe(svgSprite({
-            mode: {
-                stack: {
-                    sprite: '../sprite.svg',
-                    example: true
-                }
-            }
-        }))
-        .pipe(dest('app/images'))
-}
+// function sprite() {
+//     return src('app/images/*.svg')
+//         .pipe(svgSprite({
+//             mode: {
+//                 stack: {
+//                     sprite: '../sprite.svg',
+//                     example: true
+//                 }
+//             }
+//         }))
+//         .pipe(dest('app/images'))
+// }
 
 function scripts() {
     return src([
+        'node_modules/swiper/swiper-bundle.js',
         'app/js/main.js',
     ])
         .pipe(concat('main.min.js'))
@@ -94,8 +96,8 @@ function building () {
         'app/css/style.min.css',
         '!app/images/**/*.html',
         'app/images/*.*',
-        '!app/images/*.svg',
-        'app/images/sprite.svg',
+        // '!app/images/*.svg',
+        // 'app/images/sprite.svg',
         'app/fonts/*.*',
         'app/js/main.min.js',
         'app/**/*.html'
@@ -107,7 +109,7 @@ exports.styles = styles;
 exports.images = images;
 exports.fonts = fonts;
 exports.building = building;
-exports.sprite = sprite;
+// exports.sprite = sprite;
 exports.scripts = scripts;
 exports.watching = watching;
 

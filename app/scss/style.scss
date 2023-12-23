@@ -1,0 +1,643 @@
+@import 'fonts';
+@import 'reset';
+@import 'vars';
+@import 'global';
+@import 'mixins';
+@import 'libs';
+
+
+
+/*
+.container {
+    width: clamp(30px, 1.875vw,36px);
+    height: clamp(40px, 6.3vh, 68px)
+}
+
+    1920x1080
+
+    расчет промежуточного значение clamp()
+    30px минимально значение
+    36px максимальное значение
+    Нам нужно взять ширину екрана 1920 чтобы узнать сколько занимает 1 vw: 1920 / 100 = 19.2px это размер одного vw
+    Потом берем максимально значение 36px / 19.2px чтобы узнать промежуточное значение 1.875vw
+
+    Нам нужно взять высоту екрана 1080 чтобы узнать сколько занимает 1 vh: 1080 / 100 = 10.8px это размер одного vh
+    Потом берем максимально значение 68px / 10.8px чтобы узнать промежуточное значение 6.3vh
+*/
+
+/* animation */
+@keyframes header-bg {
+    0% {
+        background-position: 100vw;
+    }
+
+    50% {
+        background-position: 150vw;
+    }
+
+    100% {
+        background-position: 100vw;
+    }
+}
+
+
+
+.header {
+
+    &__top {
+        @include flex-item-center;
+        /* use clamp() */
+        height: clamp(40px, 6.3vh, 68px);
+        background: linear-gradient(267deg, $green-dark 36.58%, $blue-dark 80.91%);
+        background-size: 150vw;
+        animation: header-bg 7s ease-in-out infinite;
+    }
+
+    &__top-inner {
+        @include flex-space-between-center;
+        /* use clamp() */
+        gap: 40px;
+    }
+
+    &__menu {
+        @include flex-item-center;
+        /* use clamp() */
+        gap: 37px;
+    }
+
+    &__nav-items {
+        @include flex-center-center;
+        /* use clamp() */
+        gap: 43px;
+
+    }
+
+    &__nav-link {
+        @include hauora-600;
+        /* use clamp() */
+        font-size: 14px;
+        line-height: 16px;
+
+
+        color: $grey;
+        transition: color .2s ease-in-out;
+
+        &:hover {
+            color: $white;
+            text-shadow: $accent 0px 0px 9px;
+        }
+
+        &:active {
+            color: $accent;
+        }
+    }
+
+    /* color text last-child */
+    &__nav-item {
+        &:last-child {
+            .header__nav-link {
+                color: $white;
+            }
+        }
+    }
+
+    &__btn {
+        @include flex-center-center;
+        /* use clamp() */
+        gap: 10px;
+    }
+
+    &__languages {
+        @include flex-center-center;
+        /* use clamp() */
+        gap: 6px;
+        padding: 7px 14px 7px 10px;
+
+        @include header-bg;
+    }
+
+    &__languages-icon {
+        /* use clamp() */
+        width: 17px;
+        height: 18px;
+    }
+
+    &__languages-name {
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 14px;
+        line-height: 19px;
+
+        color: $white;
+        text-transform: uppercase;
+    }
+
+    &__well {
+        @include flex-center-center;
+        /* use clamp() */
+        gap: 8px;
+
+        /* use clamp() */
+        padding: 4px 11px 4px 9px;
+
+        @include header-bg;
+    }
+
+    &__well-icon {
+        /* use clamp() */
+        width: 20p;
+        height: 20px;
+    }
+
+    &__well-name {
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 18px;
+        line-height: 25px;
+
+        color: $white;
+    }
+
+    /* header__content */
+    &__content {
+        /* use clamp() */
+        height: 1240px;
+
+        background: linear-gradient(358deg, #0C111C 9.12%, rgba(13, 25, 27, 0.40) 81.22%);
+
+        background-image: url(../images/header-bg.png);
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        background-size: cover;
+    }
+
+    /* moon bg */
+    &__content-wrapper {
+        background-image: url(../images/moon-bg.png);
+        background-repeat: no-repeat;
+        /* use clamp() */
+        background-position: right -68px;
+        background-size: contain;
+    }
+
+    &__content-info-wrapper {
+        display: flex;
+        /* use clamp() */
+        padding: 179px 0 87px;
+    }
+
+    &__content-info {
+        @include flex-column;
+        /* use clamp() */
+        gap: 16px;
+        margin-top: 28px;
+    }
+
+    &__content-title {
+        /* use clamp() */
+        width: 698px;
+
+        @include inter-800;
+        /* use clamp() */
+        font-size: 56px;
+        line-height: 61px;
+
+        @include gradient-text;
+    }
+
+    &__content-text {
+        /* use clamp() */
+        width: 567px;
+
+        @include style-text;
+    }
+
+    /* slider */
+    &__content-slider-item {
+        /* use clamp() */
+        width: 350px;
+        height: 460px;
+
+        border-radius: 8px;
+        background-color: $bg;
+        transition: all .7s ease-in-out;
+
+        position: relative;
+    }
+
+    &__content-container {
+        /* use clamp() */
+        height: 561px;
+    }
+
+    &__slider-box {
+        /* use clamp() */
+        padding: 30px 50px 30px 30px;
+        /* height dont good */
+        height: 400px;
+    }
+
+    &__slider-subtitle {
+        @include hauora-600;
+        /* use clamp() */
+        font-size: 18px;
+        line-height: 32px;
+
+        color: $white-grey;
+    }
+
+    &__slider-title {
+        @include inter-700;
+        /* use clamp() */
+        font-size: 32px;
+        line-height: 34px;
+        margin-bottom: 16px;
+
+        color: $white;
+    }
+
+    &__slider-text {
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 32px;
+
+        color: $white;
+    }
+
+    &__slider-btn {
+        @include slider-btn;
+    }
+
+    /* bg img slider item */
+
+    &__global,
+    &__reward,
+    &__secret {
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+
+    &__global {
+
+        background-image: url(../images/slider-global-decor.png);
+    }
+
+    &__reward {
+        background-image: url(../images/slider-reward-decor.png);
+    }
+
+    &__secret {
+        background-image: url(../images/slider-secret-decor.png);
+    }
+
+}
+
+/* slider */
+.swiper-slide.header__content-slider-item.swiper-slide-active {
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.swiper-slide.header__content-slider-item,
+.swiper-slide.header__content-slider-item.swiper-slide-next,
+.swiper-slide.header__content-slider-item.swiper-slide-prev {
+    /* use clamp() */
+    transform: translateY(60px);
+    filter: blur(2px);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    /* use clamp() */
+    width: 60px;
+    height: 60px;
+    background-color: $black-bg;
+    border-radius: 50%;
+    border: 1px solid $grey-ease;
+    position: absolute;
+    box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.59);
+    z-index: 1;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-image: url(../images/arrow-left-white.svg);
+    }
+
+    &:active {
+        border: 1px solid $accent;
+        box-shadow: 0px 4px 21px 0px rgba($accent, 0.59);
+    }
+
+
+}
+
+.swiper-button-prev {
+    /* use clamp() */
+    left: 43.5%;
+    bottom: 21px;
+
+    &::after {
+        background-image: url(../images/arrow-left-white.svg);
+    }
+}
+
+.swiper-button-next {
+    /* use clamp() */
+    right: 43.5%;
+    bottom: 21px;
+
+    &::after {
+        background-image: url(../images/arrow-right-white.svg);
+    }
+}
+
+.swiper-button-next.swiper-button-disabled {
+    &::after {
+        background-image: url(../images/arrow-right-grey.svg);
+    }
+}
+
+.swiper-button-prev.swiper-button-disabled {
+    &::after {
+        background-image: url(../images/arrow-left-grey.svg);
+    }
+}
+
+
+
+
+/* partners page */
+.partners {
+    /* use clamp() */
+    height: 617px;
+    background-color: $black-bg;
+    padding: 95px 0 18px;
+
+    &__inner {
+        @include flex-space-between;
+    }
+
+    &__info-title {
+        /* use clamp() */
+        padding: 72px 0 24px;
+
+        @include style-title;
+    }
+
+    &__info-text {
+        /* use clamp() */
+        width: 567px;
+        margin-bottom: 46px;
+
+        @include style-text;
+    }
+
+    &__info-link-box {
+        /* use clamp() */
+        padding: 9px 16px 9px 13px;
+        width: 493px;
+        border-radius: 8px;
+
+        background-color: $bg;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 37px;
+            height: 37px;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
+            background-image: url(../images/swap-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+
+    &__info-link-btn {
+        @include tips-btn;
+    }
+
+    &__info-link-description {
+        @include style-text;
+    }
+
+
+    &__imgs {
+        /* use clamp() */
+        width: 538px;
+        height: 503px;
+
+        position: relative;
+    }
+
+    &__img-google-box {
+        position: absolute;
+        /* use clamp() */
+        left: 192px;
+        top: 0;
+        /* use clamp() */
+        width: 105px;
+        height: 105px;
+
+        @include partner-img;
+    }
+
+    &__img-yahoo-box {
+        position: absolute;
+        /* use clamp() */
+        right: 92px;
+        top: 20px;
+        /* use clamp() */
+        width: 143px;
+        height: 143px;
+
+        @include partner-img;
+    }
+
+    &__img-wecar-box {
+        position: absolute;
+        /* use clamp() */
+        left: 57px;
+        top: 69px;
+        /* use clamp() */
+        width: 143px;
+        height: 143px;
+
+        @include partner-img;
+    }
+
+    &__img-nasdaq-box {
+        position: absolute;
+        /* use clamp() */
+        left: 196px;
+        top: 141px;
+        /* use clamp() */
+        width: 159px;
+        height: 159px;
+
+        @include partner-img;
+    }
+
+    &__img-binance-box {
+        position: absolute;
+        /* use clamp() */
+        right: -34px;
+        top: 107px;
+        /* use clamp() */
+        width: 181px;
+        height: 181px;
+    }
+
+    &__img-xwc-box {
+        position: absolute;
+        /* use clamp() */
+        left: 0;
+        top: 212px;
+        /* use clamp() */
+        width: 105px;
+        height: 105px;
+
+        @include partner-img;
+    }
+
+    &__img-ods-box {
+        position: absolute;
+        /* use clamp() */
+        left: 80px;
+        top: 275px;
+        /* use clamp() */
+        width: 143px;
+        height: 143px;
+
+        @include partner-img;
+    }
+
+    &__img-ambev-box {
+        position: absolute;
+        /* use clamp() */
+        left: 336px;
+        top: 247px;
+        /* use clamp() */
+        width: 159px;
+        height: 159px;
+
+        @include partner-img;
+    }
+
+    &__img-yandex-box {
+        position: absolute;
+        /* use clamp() */
+        left: 230px;
+        top: 339px;
+        /* use clamp() */
+        width: 102px;
+        height: 102px;
+
+        @include partner-img;
+    }
+
+    /* decor */
+    &__decor-big-box {
+        position: absolute;
+        /* use clamp() */
+        left: 36px;
+        bottom: 0;
+    }
+
+    &__decor-left-box {
+        position: absolute;
+        /* use clamp() */
+        left: 77px;
+        bottom: 69px;
+    }
+
+    &__decor-right-box {
+        position: absolute;
+        /* use clamp() */
+        right: 43px;
+        bottom: 70px;
+    }
+}
+
+
+.wallet {
+    /* use clamp() */
+    padding: 84px 0;
+    background-color: $black-bg;
+    background-image: url(../images/wallet-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__inner {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 35px;
+    }
+
+    &__info {
+        /* use clamp() */
+        width: 420px;
+    }
+
+    &__info-title {
+        /* use clamp() */
+        margin-bottom: 16px;
+
+        @include style-title;
+    }
+
+    &__info-description {
+        /* use clamp() */
+        margin-bottom: 40px;
+
+        @include style-text;
+    }
+
+    &__info-os {
+        /* use clamp() */
+        margin-bottom: 32px;
+
+    }
+
+    &__download {
+        @include download-apple-btn;
+    }
+
+    &__imgs {
+        @include flex-item-center;
+        position: relative;
+    }
+    
+    &__img-ipad-box {
+        /* use clamp() */
+        width: 652px;
+        height: 425px;
+
+    }
+
+    &__img-iphone-box {
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        transform: translateY(-50%);
+    }
+}
+
+/* ready */
+.ready {
+    background-color: $black-bg;
+    
+}
