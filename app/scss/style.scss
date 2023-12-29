@@ -181,9 +181,9 @@
     }
 
     &__content-info-wrapper {
-        display: flex;
+        @include flex-item-center;
         /* use clamp() */
-        padding: 179px 0 87px;
+        padding: 100px 0 87px;
     }
 
     &__content-info {
@@ -229,6 +229,135 @@
         /* use clamp() */
         height: 561px;
     }
+
+    /* header proof of stake */
+    &__option {
+        /* use clamp() */
+        padding: 32px;
+        border-radius: 16px;
+        border: 1px solid $grey-ultra;
+        background-color: $black-light;
+        backdrop-filter: blur(8.5px);
+    }
+
+    &__option-text {
+        /* use clamp() */
+        width: 418px;
+    }
+
+    &__option-inner {
+        position: relative;
+
+        &::before {
+            content: 'Increase';
+            position: absolute;
+            /* use clamp() */
+            top: 46%;
+            left: 50%;
+
+            transform: translateX(-50%);
+            @include style-background-text;
+        }
+    }
+
+    /* proof-of-stake page */
+    &__content-option {
+        /* use clamp() */
+        padding: 32px 32px 76px;
+        margin-bottom: 80px;
+
+        @include flex-column;
+        /* use clamp() */
+        gap: 47px;
+        border-radius: 16px;
+
+        border: 1px solid $grey-ultra;
+        background-color: $black-light;
+        backdrop-filter: blur(8.5px);
+
+        background-image: url(../images/option-decor-bg.svg);
+        background-repeat: no-repeat;
+        background-position: 15% bottom;
+        background-size: auto;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url(../images/wave-bg.svg);
+            /* use clamp() */
+            width: 1439px;
+            height: 313px;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    }
+
+    &__option-top {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 61px;
+    }
+
+    &__option-bottom {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 61px;
+    }
+
+    &__option-top-description {
+        @include flex-column;
+        /* use clamp() */
+        gap: 16px
+    }
+
+    &__option-top-description-title {
+        @include style-title;
+        /* use clamp() */
+        width: 380px;
+    }
+
+    &__option-top-description-text {
+        @include style-text;
+        width: 620px;
+    }
+
+    &__option-item {
+        @include flex-column;
+        /* use clamp() */
+        gap: 16px;
+        width: 286px;
+    }
+
+    &__option-item-box {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 9px;
+    }
+
+    &__option-item-title {
+        @include subtitle-box;
+    }
+
+    &__option-item-text {
+        @include text-box;
+    }
+
+    &__option-item-title-decor {
+        /* use clamp() */
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        padding: 9px;
+
+        @include flex-center-center;
+        background-color: $grey;
+        box-shadow: -2px 15px 16px 0px rgba($black, 0.19);
+    }
+
+
 
     &__slider-box {
         /* use clamp() */
@@ -309,6 +438,11 @@
     filter: blur(2px);
 }
 
+.swiper-slide.header__content-slider-item.swiper-slide-next,
+.swiper-slide.header__content-slider-item.swiper-slide-prev {
+    opacity: .5;
+}
+
 .swiper-button-prev,
 .swiper-button-next {
     /* use clamp() */
@@ -380,8 +514,21 @@
 .partners {
     /* use clamp() */
     height: 617px;
-    background-color: $black-bg;
     padding: 95px 0 18px;
+
+    background-color: $black-bg;
+    position: relative;
+
+    &::before {
+        content: 'Партнеры';
+        position: absolute;
+        /* use clamp() */
+        top: 96px;
+        left: 0;
+
+        @include style-background-text;
+        text-transform: uppercase;
+    }
 
     &__inner {
         @include flex-space-between;
@@ -620,7 +767,7 @@
         @include flex-item-center;
         position: relative;
     }
-    
+
     &__img-ipad-box {
         /* use clamp() */
         width: 652px;
@@ -639,5 +786,876 @@
 /* ready */
 .ready {
     background-color: $black-bg;
-    
+    /* use clamp() */
+    padding: 128px 0px 60px;
+
+    position: relative;
+
+    &::before {
+        content: 'Ready?';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include style-background-text;
+    }
+
+    &__description-box {
+        /* use clamp() */
+        margin-bottom: 49px;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    &__description-inner {
+        /* use clamp() */
+        width: 543px;
+        gap: 16px;
+
+        @include flex-column;
+        align-items: center;
+    }
+
+    &__description-title {
+        @include style-title;
+    }
+
+    &__description-text {
+        @include style-text;
+    }
+
+    /* decription */
+    &__direction {
+        /* use clamp() */
+        margin-bottom: 35px;
+        @include flex-space-between-center;
+        gap: 24px;
+    }
+
+    &__direction-item {
+        /* use clamp() */
+        width: 351px;
+        height: 257px;
+        padding: 23px 28px 30px;
+        border-radius: 8px;
+
+        background-color: $bg;
+        @include flex-column;
+        justify-content: space-between;
+    }
+
+    &__direction-step1,
+    &__direction-step2,
+    &__direction-step3 {
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: auto;
+    }
+
+    &__direction-step1 {
+        background-image: url(../images/step-1-bg.png);
+    }
+
+    &__direction-step2 {
+        background-image: url(../images/step-2-bg.png);
+    }
+
+    &__direction-step3 {
+        background-image: url(../images/step-3-bg.png);
+    }
+
+    &__direction-item-box {
+        @include flex-item-center;
+        /* use clamp() */
+        gap: 8px;
+        margin-bottom: 10px;
+
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-color: $grey-ease-light;
+            /* use clamp() */
+            height: 1px;
+            width: 250px;
+            top: 50%;
+            right: -28px;
+        }
+    }
+
+    &__direction-item-number {
+        @include hauora-800;
+        /* use clamp() */
+        font-size: 18px;
+        line-height: 20px;
+
+        color: $white;
+    }
+
+    &__direction-item-text {
+        @include hauora-600;
+        /* use clamp() */
+        font-size: 18px;
+        line-height: 32px;
+        @include text-color;
+    }
+
+    &__direction-item-title {
+        @include style-title-item;
+    }
+
+    &__direction-item-btn {
+        @include slider-btn;
+        width: fit-content;
+        /* use clamp() */
+        padding: 16px 32px;
+    }
+}
+
+/* subscription */
+.subscription {
+    /* use clamp() */
+    border-radius: 28px;
+    padding: 75px 54px;
+
+    background-color: rgba($blue-bg, .27);
+    background-image: url(../images/subscriptiption-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__title {
+        @include style-title;
+        /* use clamp() */
+        margin-bottom: 16px;
+    }
+
+    &__text {
+        @include style-text;
+        /* use clamp() */
+        margin-bottom: 32px;
+        width: 507px;
+    }
+
+    &__input-box {
+        /* use clamp() */
+        padding: 7px 12px 7px 31px;
+        width: 661px;
+        border-radius: 14px;
+
+        border: 1px solid $grey-ultra;
+        background-color: $grey-medium;
+        @include flex-space-between-center;
+    }
+
+    &__input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 16px;
+        color: $white;
+        outline: none;
+
+        &::placeholder {
+            @include hauora-400;
+            /* use clamp() */
+            font-size: 16px;
+            line-height: 16px;
+            color: $white;
+        }
+    }
+
+    &__btn {
+        @include subscription-btn;
+    }
+}
+
+/* footer */
+.footer {
+    background-color: $bg;
+
+    &__inner {
+        /* use clamp() */
+        padding: 50px 28px;
+
+        display: flex;
+        gap: 74px;
+    }
+
+    &__info {
+        width: 375px;
+    }
+
+    &__info-logo-link {
+        display: inline-block;
+        /* use clamp() */
+        margin-bottom: 17px;
+    }
+
+    &__os {
+        /* use clamp() */
+        margin-bottom: 28px;
+    }
+
+    &__info-title {
+        @include gradient-text;
+        @include inter-700;
+        /* use clamp() */
+        font-size: 20px;
+        line-height: 21px;
+        margin-bottom: 22px;
+    }
+
+    &__info-box {
+        @include flex-space-between-center;
+        /* use clamp() */
+        padding: 6px 5px 6px 24px;
+        border: 1px solid $grey-ultra;
+        background-color: $grey-ease-light;
+        box-shadow: 0px 4px 41px 0px rgba($black, 0.13);
+        backdrop-filter: blur(2px);
+        /* use clamp() */
+        border-radius: 8px;
+        margin-bottom: 18px;
+    }
+
+    &__info-input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 14px;
+        line-height: 14px;
+        color: $white;
+
+        &::placeholder {
+            @include hauora-400;
+            /* use clamp() */
+            font-size: 14px;
+            line-height: 14px;
+            color: $white;
+        }
+    }
+
+    &__info-link {
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 12px;
+        line-height: 12px;
+        padding: 8px 21px;
+        border-radius: 66px;
+
+        color: $white;
+        background-color: $accent;
+        box-shadow: 0px 4px 16px 0px $blue-deep;
+        transition: all .15s ease-in-out;
+
+        &:hover {
+            background-color: $blue;
+        }
+    }
+
+    &__info-text {
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 12px;
+        line-height: 18px;
+
+        color: $grey-ultra-ease;
+    }
+
+    &__menu {
+        display: flex;
+        /* use clamp() */
+        gap: 47px;
+    }
+
+    &__menu-inner {
+        /* use clamp() */
+        width: 170px;
+    }
+
+    &__menu-title {
+        @include hauora-800;
+        /* use clamp() */
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 32px;
+
+        color: $white;
+    }
+
+    &__menu-items {
+        @include flex-column;
+        /* use clamp() */
+        gap: 18px;
+    }
+
+    &__menu-link {
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 14px;
+        line-height: 15px;
+
+        color: $grey-ultra-ease;
+    }
+
+    &__copy {
+        /* use clamp() */
+        padding: 16px 0 20px;
+
+        border-top: 1px solid $black-bg;
+        @include flex-space-between-center;
+    }
+
+    &__copy-info,
+    &__author {
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 12px;
+        line-height: 12px;
+
+        color: $white;
+        opacity: .8;
+    }
+}
+
+
+.reward {
+    /* use clamp() */
+    height: 1007px;
+    padding: 110px 0 79px;
+
+    background-image: url(../images/reward-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__inner {
+        display: flex;
+        gap: 75px;
+        margin-bottom: 56px;
+    }
+
+    &__info {
+        /* use clamp() */
+        padding-top: 78px;
+        width: 495px;
+    }
+
+    &__info-title {
+        @include style-title;
+        /* use clamp() */
+        margin-bottom: 16px;
+    }
+
+    &__info-text {
+        @include style-text;
+        /* use clamp() */
+        margin-bottom: 27px;
+    }
+
+    &__price {
+        /* use clamp() */
+        width: 444px;
+    }
+
+    &__info-description {
+        /* use clamp() */
+        width: 354px;
+        margin-bottom: 19px;
+
+        color: $grey;
+        @include hauora-400;
+
+        /* use clamp() */
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    &__info-btn {
+        /* use clamp() */
+        padding: 6px 19px;
+        border-radius: 37px;
+
+        background-color: $blue-light;
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 12px;
+        line-height: 14px;
+
+        color: $white;
+        text-transform: uppercase;
+    }
+
+    &__price-total {
+        /* use clamp() */
+        padding: 29px 35px;
+
+        @include flex-column;
+        gap: 3px;
+        border: 1px solid $grey-light;
+        /* use clamp() */
+        border-radius: 8px;
+        box-shadow: 0px 4px 59px 0px rgba($black, .51);
+        backdrop-filter: blur(15.5px);
+    }
+
+    &__price-total-title {
+        @include hauora-400;
+        @include text-color;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    &__price-total-number {
+        @include inter-700;
+        /* use clamp() */
+        font-size: 42px;
+        line-height: 43px;
+
+        color: $white;
+    }
+
+    &__price-precent {
+        /* use clamp() */
+        padding: 16px 0 18px;
+
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 18px;
+        color: $white;
+        text-align: right;
+    }
+
+    &__price-statistics {
+        /* use clamp() */
+        padding: 25px 32px 39px;
+        border-radius: 8px;
+
+        background-color: $black-medium;
+        box-shadow: 0px 4px 59px 0px rgba($black, 0.51);
+        backdrop-filter: blur(15.5px);
+
+        @include flex-column;
+        /* use clamp() */
+        gap: 23px;
+    }
+
+    &__price-statistics-item {
+        @include flex-space-between-center;
+        /* use clamp() */
+        gap: 10px;
+        padding-bottom: 16px;
+
+        border-bottom: 1px solid $grey-light;
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    &__price-statistics-title {
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 16px;
+
+        color: $white;
+    }
+
+    &__price-statistics-number {
+        @include hauora-800;
+        /* use clamp() */
+        font-size: 20px;
+        line-height: 22px;
+
+        color: transparent;
+        background: linear-gradient(150deg, $accent 36.58%, $purple-ease 131.64%);
+        background-clip: text;
+    }
+
+    /* masternodes */
+    &__masternodes {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 30px;
+    }
+
+    &__masternodes-item {
+        /* use clamp() */
+        width: 540px;
+        padding: 48px 37px;
+        border-radius: 16px;
+        border: 1px solid $grey-ultra;
+        background-color: $black-light;
+        backdrop-filter: blur(8.5px);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* use clamp() */
+            width: 372px;
+            height: 199px;
+            background-image: url(../images/shadow-blue-decor-bg.svg);
+        }
+    }
+
+    &__cold-item {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-image: url(../images/cold-stake-bg.png);
+            width: 191px;
+            height: 254px;
+            right: 0;
+            bottom: 0;
+            background-image: url(../images/cold-stake-bg.png);
+        }
+    }
+
+    &__masternode-item {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 270px;
+            height: 253px;
+            right: 0;
+            bottom: 0;
+            background-image: url(../images/masternode-stake-bg.png);
+        }
+    }
+
+    &__masternodes-item-subtitle {
+        @include hauora-600;
+        @include text-color;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 32px;
+        margin-bottom: 6px;
+    }
+
+    &__masternodes-item-title {
+        @include style-small-title;
+        margin-bottom: 16px;
+    }
+
+    &__masternodes-item-text {
+        /* use clamp() */
+        width: 332px;
+        @include hauora-400;
+        @include text-color;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__masternodes-item-btn {
+        display: inline-block;
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 16px;
+        padding: 14px 24px 14px 64px;
+        border-radius: 12px;
+
+        color: $white;
+        background-color: $accent;
+        box-shadow: 0px 4px 16px 0px $blue-deep;
+        transition: all .15s ease-in-out;
+        position: relative;
+
+        &:hover {
+            background-color: $purple-ease;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            /* use clamp() */
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            left: 24px;
+
+            transform: translateY(-50%);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__masternodes-btn-cold {
+        &::before {
+            background-image: url(../images/cold-stake-btn-icon.svg);
+        }
+    }
+
+    &__masternodes-btn-masternod {
+        &::before {
+            background-image: url(../images/masternode-stake-btn-icon.svg);
+        }
+    }
+}
+
+.doc {
+    /* use clamp() */
+    padding: 50px 0 100px;
+
+    background-color: $black-bg;
+
+    &__inner {
+        @include flex-column;
+        align-items: center;
+        /* use clamp() */
+        gap: 66px;
+    }
+
+    &__description {
+        @include flex-column;
+        align-items: center;
+        /* use clamp() */
+        gap: 16px;
+    }
+
+    &__description-title {
+        @include style-title;
+    }
+
+    &__description-text {
+        @include hauora-600;
+        @include text-color;
+        text-align: center;
+        /* use clamp() */
+        font-size: 18px;
+        line-height: 32px;
+        width: 492px;
+    }
+
+    &__items {
+        @include flex-space-between-center;
+        /* use clamp() */
+        gap: 44px;
+    }
+
+    &__item {
+        background-color: $bg;
+        /* use clamp() */
+        width: 365px;
+        border-radius: 8px;
+        padding: 33px 28px 23px;
+
+        border: 1px solid transparent;
+        transition: all .15s ease-in-out;
+        position: relative;
+
+        &:hover {
+            border: 1px solid $grey-light-ease;
+
+            &::before {
+                background-image: url(../images/doc-item-bg.svg);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 122px;
+            height: 116px;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__item-title {
+        /* use clamp() */
+        width: 220px;
+        margin-bottom: 14px;
+        @include style-small-title
+    }
+
+    &__item-text {
+        @include style-medium-text;
+        /* use clamp() */
+        margin-bottom: 27px;
+    }
+
+    &__item-link {
+        @include style-medium-text;
+        text-decoration: underline;
+        /* use clamp() */
+        padding: 3px 45px 3px 0;
+
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            /* use clamp() */
+            width: 24px;
+            height: 24px;
+            background-image: url(../images/doc-link-icon.svg);
+        }
+    }
+}
+
+.faq {
+    background-color: $black-bg;
+    /* use clamp() */
+    padding: 61px 0 49px;
+
+    &__inner {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 17px;
+    }
+
+    &__categories-title {
+        /* use clamp() */
+        width: 443px;
+        margin-bottom: 34px;
+
+        @include style-title;
+    }
+
+    &__categories-description {
+        @include hauora-400;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 22px;
+
+        color: $grey;
+    }
+
+    &__categories-items {
+        @include flex-column;
+        /* use clamp() */
+        gap: 10px;
+    }
+
+    &__categories-item {
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 18px;
+        padding: 23px 35px 22px 26px;
+        border-radius: 8px;
+        width: 365px;
+
+        color: $white;
+        cursor: pointer;
+
+        transition: all .2s ease-in-out;
+        position: relative;
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            /* use clamp() */
+            top: 50%;
+            right: 13px;
+            transform: translateY(-50%);
+            /* use clamp() */
+            width: 9px;
+            height: 7px;
+            border: 1px solid $grey;
+            border-radius: 50%;
+        }
+
+        &--active {
+            background-color: $bg;
+
+            &::after {
+                background-color: $white;
+                border: 1px solid transparent;
+            }
+        }
+    }
+
+    &__questions-finance,
+    &__questions-start,
+    &__questions-licenses,
+    &__questions-instructions {
+        /* use clamp() */
+        width: 665px;
+        padding: 20px 33px 35px;
+        border-radius: 8px;
+
+        height: fit-content;
+
+        background-color: $black-medium;
+        box-shadow: 0px 4px 59px 0px rgba($black, 0.51);
+        backdrop-filter: blur(15.5px);
+        /* use clamp() */
+        gap: 16px;
+    }
+
+    &__questions-finance-box {
+        border-bottom: 1px solid $grey-light;
+        cursor: pointer;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    &__question-finance-title {
+
+        @include hauora-700;
+        /* use clamp() */
+        font-size: 16px;
+        line-height: 18px;
+        padding: 24px 9px 16px 9px;
+        color: $white;
+        transition: all .15s ease-in-out;
+
+        &.open {
+            color: $accent-light;
+        }
+    }
+
+    &__question-finance-text {
+        @include text-box;
+        /* use clamp() */
+        padding: 16px 0 16px;
+        transition: all .5s ease;
+    }
+
+    &__question-finance-content {
+        height: 0;
+        transition: all 2s ease;
+        overflow: hidden;
+
+        &.open {
+            height: max-content;
+        }
+    }
+}
+
+.proof-subscription {
+    background-color: $black-bg;
+    /* use clamp() */
+    padding: 135px 0 80px;
 }

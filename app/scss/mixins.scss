@@ -32,6 +32,11 @@
     font-weight: 700;
 }
 
+@mixin golos-700 {
+    font-family: 'GolosText-Bold';
+    font-weight: 700;
+}
+
 /* flex */
 @mixin flex-item-center {
     display: flex;
@@ -84,6 +89,14 @@
     color: transparent
 }
 
+/* gradient background text */
+@mixin gradient-background-text {
+    background: linear-gradient(92deg, $black-light 29.24%, $grey-hard 131.64%);
+    background-clip: text;
+    color: transparent;
+}
+
+
 @mixin text-color {
     color: $white;
     opacity: 0.8;
@@ -122,8 +135,28 @@
     border-radius: 37px;
 }
 
-/* download btn */
+/* subscription btn */
+@mixin subscription-btn {
+    @include hauora-700;
+    /* use clamp() */
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 66px;
+    padding: 14px 31px;
 
+    border: none;
+    color: $white;
+    background-color: $accent-light;
+    box-shadow: 0px 4px 16px 0px $accent-medium;
+    transition: all .15s ease-in-out;
+
+    &:hover {
+        background-color: $purple-ease;
+        box-shadow: 0px 8px 16px 0px $blue-black;
+    }
+}
+
+/* download btn */
 @mixin download-apple-btn {
     display: inline-block;
     @include hauora-700;
@@ -176,8 +209,67 @@
     @include inter-700;
     /* use clamp() */
     font-size: 42px;
-    line-height: 43px;
+    line-height: 48px;
     @include gradient-text;
+}
+
+/* style small title */
+@mixin style-small-title {
+    @include inter-700;
+    color: $white;
+    /* use clamp() */
+    font-size: 32px;
+    line-height: 34px;
+}
+
+/* style small text */
+@mixin style-small-text {
+    color: $grey;
+    @include hauora-400;
+
+    /* use clamp() */
+    font-size: 12px;
+    line-height: 18px;
+}
+
+/* style medium text */
+@mixin style-medium-text {
+    @include hauora-400;
+    /* use clamp() */
+    font-size: 14px;
+    line-height: 25px;
+    @include text-color;
+}
+
+/* subtitle box */
+@mixin subtitle-box {
+    @include hauora-600;
+    font-size: 20px;
+    line-height: 22px;
+    color: $white;
+}
+
+@mixin text-box {
+    @include hauora-400;
+    font-size: 16px;
+    line-height: 22px;
+    @include text-color;
+}
+
+/* style background text */
+@mixin style-background-text {
+    @include gradient-background-text;
+    @include golos-700;
+    /* use clamp() */
+    font-size: 180px;
+    line-height: 196px;
+}
+
+@mixin style-title-item {
+    @include inter-700;
+    font-size: 32px;
+    line-height: 34px;
+    color: $white;
 }
 
 /* partner img box */

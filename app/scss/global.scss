@@ -30,6 +30,8 @@ main {
 
 body {
     background-color: $bg;
+    display: flex;
+    flex-direction: column;
 }
 
 .os {
@@ -47,4 +49,12 @@ body {
             }
         }
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.open {
+    height: max-content;
 }
