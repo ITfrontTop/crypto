@@ -8,16 +8,27 @@ const sliderMain = new Swiper('.header__content-container', {
     // slideShadows: true,
 
     speed: 1000,
-    slidesPerView: 3,
+    slidesPerView: 1,
     initialSlide: 1,
     spaceBetween: 24,
     centeredSlides: true,
 
+    breakpoints: {
+        720: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+        },
+        
+        1240: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+        },
+    },
+    
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-
 });
 
 
@@ -90,3 +101,10 @@ faqItems.forEach(function(item) {
     })
 })
 
+// btn menu
+const btnMenu = document.querySelector('.header__menu-btn');
+const menuList = document.querySelector('.header__nav-items');
+
+btnMenu.addEventListener('click', () => {
+    menuList.classList.toggle('header__nav-items--active');
+})

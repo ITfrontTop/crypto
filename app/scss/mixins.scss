@@ -107,11 +107,11 @@
     display: inline-block;
     @include hauora-700;
     /* use clamp() */
-    font-size: 16px;
-    line-height: 16px;
-    padding: 16px 24px;
+    font-size: clamp(12px, 0.83vw, 16px);
+    line-height: clamp(14px, 0.93vw, 18px);
+    padding: clamp(8px, 0.83vw, 16px) clamp(12px, 1.25vw, 24px);
 
-    border-radius: 12px;
+    border-radius: clamp(6px, 0.625vw, 12px);
     box-shadow: 0px 8px 16px 0px $blue-black;
     background-color: $accent;
     color: $white;
@@ -131,18 +131,18 @@
     line-height: 13px;
     color: $white;
     background-color: $blue-light;
-    padding: 6px 21px;
-    border-radius: 37px;
+    padding: 6px clamp(15px, 1.09vw, 21px);
+    border-radius: clamp(18px, 1.92vw, 37px);
 }
 
 /* subscription btn */
 @mixin subscription-btn {
     @include hauora-700;
     /* use clamp() */
-    font-size: 16px;
-    line-height: 16px;
-    border-radius: 66px;
-    padding: 14px 31px;
+    font-size: clamp(12px, 0.83vw, 16px);
+    line-height: clamp(14px, 0.93vw, 18px);
+    border-radius: clamp(33px, 3.43vw, 66px);
+    padding: clamp(7px, 0.729vw, 14px) clamp(15px, 1.614vw, 31px);
 
     border: none;
     color: $white;
@@ -161,10 +161,13 @@
     display: inline-block;
     @include hauora-700;
     /* use clamp() */
-    font-size: 16px;
-    line-height: 22px;
-    padding: 14px 24px 14px 64px;
-    border-radius: 12px;
+    font-size: clamp(12px, 0.83vw, 16px);
+    line-height: clamp(18px, 1.14vw, 22px);
+    padding: clamp(10px, 0.729vw, 14px) 
+        clamp(12px, 1.25vw, 24px) 
+        clamp(10px, 0.729vw, 14px) 
+        clamp(40px, 3.33vw, 64px);
+    border-radius: clamp(8px, 0.625vw, 12px);
 
     color: $purple-light;
     background-color: $blue-ease;
@@ -180,7 +183,7 @@
         background-repeat: no-repeat;
         background-size: contain;
         top: 50%;
-        left: 24px;
+        left: clamp(10px, 1.25vw, 24px);
         transform: translateY(-50%);
     }
 
@@ -198,8 +201,8 @@
 @mixin style-text {
     @include hauora-600;
     /* use clamp() */
-    font-size: 18px;
-    line-height: 32px;
+    font-size: clamp(14px, 0.93vw, 18px);
+    line-height: clamp(18px, 1.66vw, 32px);
 
     @include text-color;
 }
@@ -208,8 +211,8 @@
 @mixin style-title {
     @include inter-700;
     /* use clamp() */
-    font-size: 42px;
-    line-height: 48px;
+    font-size: clamp(20px, 2.187vw, 42px);
+    line-height: clamp(22px, 2.5vw, 48px);
     @include gradient-text;
 }
 
@@ -218,41 +221,40 @@
     @include inter-700;
     color: $white;
     /* use clamp() */
-    font-size: 32px;
-    line-height: 34px;
+    font-size: clamp(18px, 1.66vw, 32px);
+    line-height: clamp(20px, 1.77vw, 34px);
 }
 
 /* style small text */
 @mixin style-small-text {
-    color: $grey;
     @include hauora-400;
-
     /* use clamp() */
     font-size: 12px;
     line-height: 18px;
+    color: $grey;
 }
 
 /* style medium text */
 @mixin style-medium-text {
     @include hauora-400;
     /* use clamp() */
-    font-size: 14px;
-    line-height: 25px;
+    font-size: clamp(12px, 0.729vw, 14px);
+    line-height: clamp(20px, 1.3vw, 25px);
     @include text-color;
 }
 
 /* subtitle box */
 @mixin subtitle-box {
     @include hauora-600;
-    font-size: 20px;
-    line-height: 22px;
+    font-size: clamp(16px, 1.04vw, 20px);
+    line-height: clamp(18px, 1.145vw, 22px);
     color: $white;
 }
 
 @mixin text-box {
     @include hauora-400;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: clamp(12px, 0.83vw, 16px);
+    line-height: clamp(18px, 1.14vw, 22px);
     @include text-color;
 }
 
@@ -261,14 +263,14 @@
     @include gradient-background-text;
     @include golos-700;
     /* use clamp() */
-    font-size: 180px;
-    line-height: 196px;
+    font-size: clamp(90px, 9.375vw, 180px);
+    line-height: clamp(100px, 10.2vw, 196px);
 }
 
 @mixin style-title-item {
     @include inter-700;
-    font-size: 32px;
-    line-height: 34px;
+    font-size: clamp(16px, 1.66vw, 32px);
+    line-height: clamp(18px, 1.77vw, 34px);
     color: $white;
 }
 

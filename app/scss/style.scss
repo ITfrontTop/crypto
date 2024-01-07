@@ -6,6 +6,13 @@
 @import 'libs';
 
 
+:root {
+    --index: calc(1vw + 1vh);
+    /*
+    1vw = 1920 / 100 = 1.92
+    1vh = 1080 / 100 = 1.08
+    */
+}
 
 /*
 .container {
@@ -45,38 +52,91 @@
 .header {
 
     &__top {
-        @include flex-item-center;
-        /* use clamp() */
-        height: clamp(40px, 6.3vh, 68px);
+
         background: linear-gradient(267deg, $green-dark 36.58%, $blue-dark 80.91%);
         background-size: 150vw;
         animation: header-bg 7s ease-in-out infinite;
     }
 
     &__top-inner {
+        /* use clamp() */
+        /*height: clamp(40px, 6.3vh, 68px);*/
+        height: 6.296vh;
         @include flex-space-between-center;
         /* use clamp() */
-        gap: 40px;
+        /*gap: 40px;*/
+        gap: 2.083vw;
+        /**/
+        position: relative;
+
     }
 
     &__menu {
         @include flex-item-center;
         /* use clamp() */
-        gap: 37px;
+        /*gap: 37px;*/
+        gap: 1.92vw;
+        /**/
     }
+
+
+    /* menu btn */
+    &__menu-btn {
+        /* use clamp() */
+        /*
+        width: 30px;
+        height: 20px;
+        */
+        /*width: 30px;*/
+        /*width: 1.5625vw;*/
+        width: clamp(20px, 1.56vw, 30px);
+        height: 1.85vh;
+        /**/
+        @include flex-space-between-center;
+        flex-direction: column;
+        cursor: pointer;
+        display: none;
+    }
+
+    &__menu-btn-span {
+        /* use clamp() */
+        /*width: 30px;*/
+        /*width: 1.5625vw;*/
+        width: clamp(20px, 1.56vw, 30px);
+        height: clamp(1px, 0.27vh, 3px);
+        /**/
+        border-radius: 2px;
+        background-color: $white;
+        display: none;
+    }
+
+    &__logo {
+        img {
+            /*
+            width: calc(var(--index) * 1.3);
+            height: calc(var(--index) * 1.3);
+            */
+            height: 3.88vh;
+        }
+    }
+
 
     &__nav-items {
         @include flex-center-center;
         /* use clamp() */
-        gap: 43px;
+        /*gap: 43px;*/
+        gap: 2.239vw;
+        /**/
 
     }
 
     &__nav-link {
         @include hauora-600;
         /* use clamp() */
-        font-size: 14px;
-        line-height: 16px;
+        /*font-size: 14px;*/
+        font-size: clamp(12px, 1.29vh, 14px);
+        /*line-height: 16px;*/
+        font-size: clamp(14px, 1.48vh, 16px);
 
 
         color: $grey;
@@ -90,6 +150,8 @@
         &:active {
             color: $accent;
         }
+
+
     }
 
     /* color text last-child */
@@ -103,7 +165,6 @@
 
     &__btn {
         @include flex-center-center;
-        /* use clamp() */
         gap: 10px;
     }
 
@@ -111,23 +172,33 @@
         @include flex-center-center;
         /* use clamp() */
         gap: 6px;
-        padding: 7px 14px 7px 10px;
+        /*padding: 4px 11px 4px 10px;*/
+        padding: clamp(2px, 0.65vh, 7px) clamp(4px, 0.73vw, 14px) clamp(2px, 0.65vh, 7px) clamp(3px, 0.52vw, 10px);
 
         @include header-bg;
     }
 
     &__languages-icon {
         /* use clamp() */
-        width: 17px;
-        height: 18px;
+        /*width: 17px;*/
+        /*width: 0.88vw;*/
+        width: clamp(10px, 0.88vw, 17px);
+
+        /*height: 18px;*/
+        /*height: 1.66vh;*/
+        height: clamp(11px, 1.66vh, 18px);
+        @include flex-space-between-center;
     }
 
     &__languages-name {
         @include hauora-700;
         /* use clamp() */
-        font-size: 14px;
-        line-height: 19px;
+        font-size: clamp(12px, 1.29vh, 14px);
+        line-height: clamp(14px, 1.75vh, 19px);
 
+        /*font-size: 10px;
+        line-height: 16px;
+        */
         color: $white;
         text-transform: uppercase;
     }
@@ -138,22 +209,34 @@
         gap: 8px;
 
         /* use clamp() */
-        padding: 4px 11px 4px 9px;
+        /*padding: 4px 11px 4px 9px;*/
+        padding: clamp(2px, 0.65vh, 7px) clamp(4px, 0.73vw, 14px) clamp(2px, 0.65vh, 7px) clamp(3px, 0.52vw, 10px);
 
         @include header-bg;
     }
 
     &__well-icon {
         /* use clamp() */
-        width: 20p;
-        height: 20px;
+        /*width: 20px;*/
+        /*width: 1.04vw;*/
+        width: clamp(10px, 1.04vw, 20px);
+        /*height: 20px;*/
+        /*height: 1.85vh;*/
+        height: clamp(10px, 1.85vh, 20px);
+        @include flex-space-between-center;
     }
 
     &__well-name {
         @include hauora-700;
         /* use clamp() */
-        font-size: 18px;
-        line-height: 25px;
+        /*font-size: clamp(10px, 1.66vh, 18px);
+        line-height: clamp(16px, 2.3vh, 25px);*/
+
+        font-size: clamp(12px, 1.29vh, 14px);
+        line-height: clamp(14px, 1.75vh, 19px);
+
+        /*font-size: 10px;
+        line-height: 16px;*/
 
         color: $white;
     }
@@ -162,6 +245,10 @@
     &__content {
         /* use clamp() */
         height: 1240px;
+        /*height: fit-content;*/
+        /*height: 114.8vh;*/
+        /*height: 114.8vh;*/
+        /**/
 
         background: linear-gradient(358deg, #0C111C 9.12%, rgba(13, 25, 27, 0.40) 81.22%);
 
@@ -176,47 +263,68 @@
         background-image: url(../images/moon-bg.png);
         background-repeat: no-repeat;
         /* use clamp() */
-        background-position: right -68px;
+        background-position: right clamp(-20px, 6.29vh, -68px);
         background-size: contain;
     }
 
     &__content-info-wrapper {
         @include flex-item-center;
+        justify-content: space-around;
+
         /* use clamp() */
-        padding: 100px 0 87px;
+        /*padding: 100px 0 87px*/
+        /*padding: clamp(30px, 9.25vh, 100px) 0 clamp(27px, 8.05vh, 87px);*/
+        padding: clamp(50px, 5.20vw, 100px) 0 clamp(40px, 4.5vw, 87px);
+
     }
 
     &__content-info {
         @include flex-column;
         /* use clamp() */
-        gap: 16px;
-        margin-top: 28px;
+        /*gap: 16px;*/
+        gap: clamp(8px, 0.83vw, 16px);
+        /*margin-top: 28px;*/
     }
+
+
 
     &__content-title {
         /* use clamp() */
-        width: 698px;
+        /*width: 698px;*/
+        width: clamp(250px, 36.35vw, 698px);
 
         @include inter-800;
         /* use clamp() */
-        font-size: 56px;
-        line-height: 61px;
+        /*font-size: 56px;
+        line-height: 61px;*/
+        font-size: clamp(30px, 2.91vw, 56px);
+        line-height: clamp(35px, 3.17vw, 61px);
 
         @include gradient-text;
     }
 
     &__content-text {
         /* use clamp() */
-        width: 567px;
+        /*width: 567px;*/
+        width: clamp(250px, 29.5vw, 567px);
 
         @include style-text;
+    }
+
+    &__content-img {
+        width: calc(var(--index) * 11);
     }
 
     /* slider */
     &__content-slider-item {
         /* use clamp() */
-        width: 350px;
-        height: 460px;
+        /*width: 350px;*/
+        width: clamp(250px, 18.2vw, 350px);
+        /*200px*/
+
+        /*height: 460px;*/
+        height: clamp(260px, 23.95vw, 460px);
+        /*210px*/
 
         border-radius: 8px;
         background-color: $bg;
@@ -227,170 +335,34 @@
 
     &__content-container {
         /* use clamp() */
-        height: 561px;
+        /*height: 561px;*/
+        height: clamp(311px, 29.2vw, 561px);
     }
-
-    /* header proof of stake */
-    &__option {
-        /* use clamp() */
-        padding: 32px;
-        border-radius: 16px;
-        border: 1px solid $grey-ultra;
-        background-color: $black-light;
-        backdrop-filter: blur(8.5px);
-    }
-
-    &__option-text {
-        /* use clamp() */
-        width: 418px;
-    }
-
-    &__option-inner {
-        position: relative;
-
-        &::before {
-            content: 'Increase';
-            position: absolute;
-            /* use clamp() */
-            top: 46%;
-            left: 50%;
-
-            transform: translateX(-50%);
-            @include style-background-text;
-        }
-    }
-
-    /* proof-of-stake page */
-    &__content-option {
-        /* use clamp() */
-        padding: 32px 32px 76px;
-        margin-bottom: 80px;
-
-        @include flex-column;
-        /* use clamp() */
-        gap: 47px;
-        border-radius: 16px;
-
-        border: 1px solid $grey-ultra;
-        background-color: $black-light;
-        backdrop-filter: blur(8.5px);
-
-        background-image: url(../images/option-decor-bg.svg);
-        background-repeat: no-repeat;
-        background-position: 15% bottom;
-        background-size: auto;
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            background-image: url(../images/wave-bg.svg);
-            /* use clamp() */
-            width: 1439px;
-            height: 313px;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-    }
-
-    &__option-top {
-        @include flex-space-between;
-        /* use clamp() */
-        gap: 61px;
-    }
-
-    &__option-bottom {
-        @include flex-space-between;
-        /* use clamp() */
-        gap: 61px;
-    }
-
-    &__option-top-description {
-        @include flex-column;
-        /* use clamp() */
-        gap: 16px
-    }
-
-    &__option-top-description-title {
-        @include style-title;
-        /* use clamp() */
-        width: 380px;
-    }
-
-    &__option-top-description-text {
-        @include style-text;
-        width: 620px;
-    }
-
-    &__option-item {
-        @include flex-column;
-        /* use clamp() */
-        gap: 16px;
-        width: 286px;
-    }
-
-    &__option-item-box {
-        @include flex-space-between;
-        /* use clamp() */
-        gap: 9px;
-    }
-
-    &__option-item-title {
-        @include subtitle-box;
-    }
-
-    &__option-item-text {
-        @include text-box;
-    }
-
-    &__option-item-title-decor {
-        /* use clamp() */
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        padding: 9px;
-
-        @include flex-center-center;
-        background-color: $grey;
-        box-shadow: -2px 15px 16px 0px rgba($black, 0.19);
-    }
-
-
 
     &__slider-box {
         /* use clamp() */
-        padding: 30px 50px 30px 30px;
-        /* height dont good */
-        height: 400px;
+        padding: clamp(15px, 1.56vw, 30px) clamp(25px, 2.6px, 50px) clamp(15px, 1.56vw, 30px) clamp(15px, 1.56vw, 30px);
+        /*height: 400px;*/
+        height: -webkit-fill-available;
     }
 
     &__slider-subtitle {
-        @include hauora-600;
-        /* use clamp() */
-        font-size: 18px;
-        line-height: 32px;
-
-        color: $white-grey;
+        @include style-text;
     }
 
     &__slider-title {
-        @include inter-700;
-        /* use clamp() */
-        font-size: 32px;
-        line-height: 34px;
-        margin-bottom: 16px;
+        @include style-small-title;
 
-        color: $white;
+        margin-bottom: clamp(8px, 0.83vw, 16px);
+
     }
 
     &__slider-text {
         @include hauora-400;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 16px;
-        margin-bottom: 32px;
+        font-size: clamp(8px, 0.83vw, 16px);
+        line-height: clamp(9px, 0.93vw, 18px);
+        margin-bottom: clamp(16px, 1.66vw, 32px);
 
         color: $white;
     }
@@ -422,6 +394,138 @@
         background-image: url(../images/slider-secret-decor.png);
     }
 
+
+
+    /* header proof of stake */
+    &__option {
+        /* use clamp() */
+        padding: clamp(16px, 1.66vw, 32px);
+        border-radius: (8px, 0.83vw, 16px);
+        border: 1px solid $grey-ultra;
+        background-color: $black-light;
+        backdrop-filter: blur(8.5px);
+    }
+
+    &__option-text {
+        /* use clamp() */
+        width: clamp(210px, 21.77vw, 418px);
+    }
+
+    &__option-inner {
+        position: relative;
+
+        &::before {
+            content: 'Increase';
+            position: absolute;
+            /* use clamp() */
+            top: 46%;
+            left: 50%;
+
+            transform: translateX(-50%);
+            @include style-background-text;
+        }
+    }
+
+    /* proof-of-stake page */
+    &__content-option-inner {
+        @include flex-column;
+    }
+
+    &__content-option {
+        /* use clamp() */
+        padding: clamp(16px, 1.66vw, 32px) clamp(16px, 1.66vw, 32px) clamp(38px, 3.95vw, 76px);
+        margin-bottom: clamp(40px, 4.16vw, 80px);
+
+        @include flex-column;
+        /* use clamp() */
+        gap: clamp(23px, 2.44vw, 47px);
+        border-radius: clamp(8px, 0.83vw, 16px);
+
+        border: 1px solid $grey-ultra;
+        background-color: $black-light;
+        backdrop-filter: blur(8.5px);
+
+        background-image: url(../images/option-decor-bg.svg);
+        background-repeat: no-repeat;
+        background-position: 15% bottom;
+        background-size: auto;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url(../images/wave-bg.svg);
+            /* use clamp() */
+            width: clamp(719px, 74.94vw, 1439px);
+            height: clamp(156px, 16.3vw, 313px);
+            bottom: clamp(-15px, 1.562vw, -30px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    }
+
+    &__option-top {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: clamp(30px, 3.17vw, 61px);
+    }
+
+    &__option-bottom {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: clamp(30px, 3.17vw, 61px);
+    }
+
+    &__option-top-description {
+        @include flex-column;
+        /* use clamp() */
+        gap: clamp(8px, 0.83vw, 16px);
+    }
+
+    &__option-top-description-title {
+        @include style-title;
+        /* use clamp() */
+        width: clamp(190px, 19.79vw, 380px);
+    }
+
+    &__option-top-description-text {
+        @include style-text;
+        width: clamp(310px, 32.29vw, 620px);
+    }
+
+    &__option-item {
+        @include flex-column;
+        /* use clamp() */
+        gap: clamp(8px, 0.83vw, 16px);
+        width: clamp(200px, 14.89vw, 286px);
+    }
+
+    &__option-item-box {
+        @include flex-space-between;
+        /* use clamp() */
+        gap: 9px;
+    }
+
+    &__option-item-title {
+        @include subtitle-box;
+    }
+
+    &__option-item-text {
+        @include text-box;
+    }
+
+    &__option-item-title-decor {
+        /* use clamp() */
+        width: clamp(21px, 2.187vw, 42px);
+        height: clamp(21px, 2.187vw, 42px);
+        border-radius: clamp(6px, 0.625vw, 12px);
+        padding: clamp(5px, 0.468vw, 9px);
+
+        @include flex-center-center;
+        background-color: $grey;
+        box-shadow: -2px 15px 16px 0px rgba($black, 0.19);
+    }
 }
 
 /* slider */
@@ -443,10 +547,26 @@
     opacity: .5;
 }
 
+.swiper-button-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+
+    position: absolute;
+    bottom: 21px;
+    right: 0;
+    left: 0;
+
+}
+
 .swiper-button-prev,
 .swiper-button-next {
     /* use clamp() */
+    /*width: clamp(30px, 3.125vw, 60px);*/
     width: 60px;
+    /*height: clamp(30px, 3.125vw, 60px);*/
     height: 60px;
     background-color: $black-bg;
     border-radius: 50%;
@@ -476,9 +596,8 @@
 }
 
 .swiper-button-prev {
-    /* use clamp() */
-    left: 43.5%;
-    bottom: 21px;
+    left: 480px;
+    bottom: 0;
 
     &::after {
         background-image: url(../images/arrow-left-white.svg);
@@ -486,9 +605,8 @@
 }
 
 .swiper-button-next {
-    /* use clamp() */
-    right: 43.5%;
-    bottom: 21px;
+    right: 480px;
+    bottom: 0;
 
     &::after {
         background-image: url(../images/arrow-right-white.svg);
@@ -512,9 +630,12 @@
 
 /* partners page */
 .partners {
+    overflow-x: hidden;
     /* use clamp() */
-    height: 617px;
-    padding: 95px 0 18px;
+    /*height: 617px;*/
+    height: fit-content;
+
+    padding: clamp(50px, 4.947vw, 95px) clamp(10px, 0.937vw, 18px);
 
     background-color: $black-bg;
     position: relative;
@@ -523,7 +644,7 @@
         content: 'Партнеры';
         position: absolute;
         /* use clamp() */
-        top: 96px;
+        top: clamp(48px, 5vw, 96px);
         left: 0;
 
         @include style-background-text;
@@ -536,15 +657,15 @@
 
     &__info-title {
         /* use clamp() */
-        padding: 72px 0 24px;
+        padding: clamp(36px, 19.2vw, 72px) 0 clamp(12px, 1.25vw, 24px);
 
         @include style-title;
     }
 
     &__info-text {
         /* use clamp() */
-        width: 567px;
-        margin-bottom: 46px;
+        width: clamp(270px, 29.5vw, 567px);
+        margin-bottom: clamp(23px, 2.39vw, 46px);
 
         @include style-text;
     }
@@ -552,7 +673,7 @@
     &__info-link-box {
         /* use clamp() */
         padding: 9px 16px 9px 13px;
-        width: 493px;
+        width: clamp(276px, 25.67vw, 493px);
         border-radius: 8px;
 
         background-color: $bg;
@@ -584,145 +705,187 @@
 
     &__imgs {
         /* use clamp() */
-        width: 538px;
-        height: 503px;
+        /*width: 538px;*/
+        width: clamp(269px, 28.0vw, 538px);
+        height: clamp(252px, 26.19vw, 503px);
 
         position: relative;
     }
 
+    /*  в 2 разы */
     &__img-google-box {
         position: absolute;
         /* use clamp() */
-        left: 192px;
+        left: clamp(96px, 10vw, 192px);
         top: 0;
         /* use clamp() */
-        width: 105px;
-        height: 105px;
+        /*width: 105px;
+        height: 105px;*/
+        width: clamp(52px, 5.46vw, 105px);
+        height: clamp(52px, 5.46vw, 105px);
 
         @include partner-img;
     }
+
+    &__img-google {
+        width: 50%;
+    }
+
 
     &__img-yahoo-box {
         position: absolute;
         /* use clamp() */
-        right: 92px;
-        top: 20px;
+        right: clamp(46px, 4.79vw, 92px);
+        top: clamp(10px, 1.04vw, 20px);
         /* use clamp() */
-        width: 143px;
-        height: 143px;
+        width: clamp(71px, 7.44vw, 143px);
+        height: clamp(71px, 7.44vw, 143px);
 
         @include partner-img;
     }
 
+    &__img-yahoo {
+        width: 70%;
+    }
+
+
     &__img-wecar-box {
         position: absolute;
         /* use clamp() */
-        left: 57px;
-        top: 69px;
+        left: clamp(28px, 2.968vw, 57px);
+        top: clamp(34px, 3.593vw, 69px);
         /* use clamp() */
-        width: 143px;
-        height: 143px;
+        width: clamp(71px, 7.44vw, 143px);
+        height: clamp(71px, 7.44vw, 143px);
 
         @include partner-img;
+    }
+
+    &__img-wecar {
+        width: 70%;
     }
 
     &__img-nasdaq-box {
         position: absolute;
         /* use clamp() */
-        left: 196px;
-        top: 141px;
+        left: clamp(98px, 10.2vw, 196px);
+        top: clamp(70px, 7.34vw, 141px);
         /* use clamp() */
-        width: 159px;
-        height: 159px;
+        width: clamp(79px, 8.28vw, 159px);
+        height: clamp(79px, 8.28vw, 159px);
 
         @include partner-img;
+    }
+
+    &__img-nasdaq {
+        width: 75%;
     }
 
     &__img-binance-box {
         position: absolute;
         /* use clamp() */
-        right: -34px;
-        top: 107px;
+        right: clamp(-17px, 1.77vw, -34px);
+        top: clamp(53px, 5.57vw, 107px);
         /* use clamp() */
-        width: 181px;
-        height: 181px;
+        width: clamp(90px, 9.42vw, 181px);
+        height: clamp(90px, 9.42vw, 181px);
     }
+
+    /*&__img-binance {
+        картинка и если содержимым
+    }*/
 
     &__img-xwc-box {
         position: absolute;
         /* use clamp() */
         left: 0;
-        top: 212px;
+        top: clamp(106px, 11.04vw, 212px);
         /* use clamp() */
-        width: 105px;
-        height: 105px;
+        width: clamp(52px, 5.46vw, 105px);
+        height: clamp(52px, 5.46vw, 105px);
 
         @include partner-img;
+    }
+
+    &__img-xwc {
+        width: 50%;
     }
 
     &__img-ods-box {
         position: absolute;
         /* use clamp() */
-        left: 80px;
-        top: 275px;
+        left: clamp(40px, 4.16vw, 80px);
+        top: clamp(137px, 14.32vw, 275px);
         /* use clamp() */
-        width: 143px;
-        height: 143px;
+        width: clamp(71px, 7.44vw, 143px);
+        height: clamp(71px, 7.44vw, 143px);
 
         @include partner-img;
+    }
+
+    &__img-ods {
+        width: 68%;
     }
 
     &__img-ambev-box {
         position: absolute;
         /* use clamp() */
-        left: 336px;
-        top: 247px;
+        left: clamp(168px, 17.5vw, 336px);
+        top: clamp(123px, 12.86vw, 247px);
         /* use clamp() */
-        width: 159px;
-        height: 159px;
+        width: clamp(79px, 8.28vw, 159px);
+        height: clamp(79px, 8.28vw, 159px);
 
         @include partner-img;
+    }
+
+    &__img-ambev {
+        width: 72%;
     }
 
     &__img-yandex-box {
         position: absolute;
         /* use clamp() */
-        left: 230px;
-        top: 339px;
+        left: clamp(115px, 11.97vw, 230px);
+        top: clamp(169px, 17.65vw, 339px);
         /* use clamp() */
-        width: 102px;
-        height: 102px;
+        width: clamp(51px, 5.31vw, 102px);
+        height: clamp(51px, 5.31vw, 102px);
 
         @include partner-img;
+    }
+
+    &__img-yandex {
+        width: 50%;
     }
 
     /* decor */
     &__decor-big-box {
         position: absolute;
         /* use clamp() */
-        left: 36px;
+        left: clamp(18px, 1.875vw, 36px);
         bottom: 0;
     }
 
     &__decor-left-box {
         position: absolute;
         /* use clamp() */
-        left: 77px;
-        bottom: 69px;
+        left: clamp(38px, 4.01vw, 77px);
+        bottom: clamp(34px, 3.59vw, 69px);
     }
 
     &__decor-right-box {
         position: absolute;
         /* use clamp() */
-        right: 43px;
-        bottom: 70px;
+        right: clamp(21px, 2.23vw, 43px);
+        bottom: clamp(35px, 3.64vw, 70px);
     }
 }
 
 
 .wallet {
     /* use clamp() */
-    padding: 84px 0;
+    padding: clamp(50px, 4.375vw, 84px) 0;
     background-color: $black-bg;
     background-image: url(../images/wallet-bg.svg);
     background-repeat: no-repeat;
@@ -731,31 +894,31 @@
     &__inner {
         @include flex-space-between;
         /* use clamp() */
-        gap: 35px;
+        gap: clamp(18px, 1.82vw, 35px);
     }
 
     &__info {
         /* use clamp() */
-        width: 420px;
+        width: clamp(210px, 21.875vw, 420px);
     }
 
     &__info-title {
         /* use clamp() */
-        margin-bottom: 16px;
+        margin-bottom: clamp(8px, 0.83vw, 16px);
 
         @include style-title;
     }
 
     &__info-description {
         /* use clamp() */
-        margin-bottom: 40px;
+        margin-bottom: clamp(20px, 2.08vw, 40px);
 
         @include style-text;
     }
 
     &__info-os {
         /* use clamp() */
-        margin-bottom: 32px;
+        margin-bottom: clamp(16px, 1.66vw, 32px);
 
     }
 
@@ -770,12 +933,13 @@
 
     &__img-ipad-box {
         /* use clamp() */
-        width: 652px;
-        height: 425px;
-
+        width: clamp(280px, 33.9vw, 652px);
+        height: clamp(212px, 22.1vw, 425px);
     }
 
     &__img-iphone-box {
+        width: clamp(110px, 11.45vw, 220px);
+        height: clamp(222px, 23.125vw, 444px);
         position: absolute;
         top: 50%;
         right: 0px;
@@ -785,9 +949,10 @@
 
 /* ready */
 .ready {
+    overflow-x: hidden;
     background-color: $black-bg;
     /* use clamp() */
-    padding: 128px 0px 60px;
+    padding: clamp(64px, 6.66vw, 128px) 0px clamp(30px, 3.125vw, 60px);
 
     position: relative;
 
@@ -802,7 +967,7 @@
 
     &__description-box {
         /* use clamp() */
-        margin-bottom: 49px;
+        margin-bottom: clamp(24px, 2.55vw, 49px);
 
         display: flex;
         justify-content: center;
@@ -810,8 +975,8 @@
 
     &__description-inner {
         /* use clamp() */
-        width: 543px;
-        gap: 16px;
+        width: clamp(271px, 28.28vw, 543px);
+        gap: clamp(8px, 0.83vw, 16px);
 
         @include flex-column;
         align-items: center;
@@ -828,17 +993,17 @@
     /* decription */
     &__direction {
         /* use clamp() */
-        margin-bottom: 35px;
-        @include flex-space-between-center;
-        gap: 24px;
+        margin-bottom: clamp(18px, 1.82vw, 35px);
+        @include flex-center-center;
+        gap: clamp(20px, 1.25vw, 24px);
     }
 
     &__direction-item {
         /* use clamp() */
-        width: 351px;
-        height: 257px;
-        padding: 23px 28px 30px;
-        border-radius: 8px;
+        width: clamp(175px, 18.28vw, 351px);
+        height: clamp(128px, 13.38vw, 257px);
+        padding: clamp(11px, 1.19vw, 23px) clamp(14px, 1.45vw, 28px) clamp(15px, 1.56vw, 30px);
+        border-radius: clamp(4px, 0.41vw, 8px);
 
         background-color: $bg;
         @include flex-column;
@@ -850,19 +1015,21 @@
     &__direction-step3 {
         background-repeat: no-repeat;
         background-position: right bottom;
-        background-size: auto;
     }
 
     &__direction-step1 {
         background-image: url(../images/step-1-bg.png);
+        background-size: 40%;
     }
 
     &__direction-step2 {
         background-image: url(../images/step-2-bg.png);
+        background-size: 65%;
     }
 
     &__direction-step3 {
         background-image: url(../images/step-3-bg.png);
+        background-size: 55%;
     }
 
     &__direction-item-box {
@@ -879,17 +1046,17 @@
             background-color: $grey-ease-light;
             /* use clamp() */
             height: 1px;
-            width: 250px;
+            width: clamp(125px, 13.02vw, 250px);
             top: 50%;
-            right: -28px;
+            right: clamp(-14px, 1.45vw, -28px);
         }
     }
 
     &__direction-item-number {
         @include hauora-800;
         /* use clamp() */
-        font-size: 18px;
-        line-height: 20px;
+        font-size: clamp(14px, 0.937vw, 18px);
+        line-height: clamp(16px, 1.04vw, 20px);
 
         color: $white;
     }
@@ -897,8 +1064,8 @@
     &__direction-item-text {
         @include hauora-600;
         /* use clamp() */
-        font-size: 18px;
-        line-height: 32px;
+        font-size: clamp(14px, 0.937vw, 18px);
+        line-height: clamp(16px, 1.66vw, 32px);
         @include text-color;
     }
 
@@ -910,15 +1077,16 @@
         @include slider-btn;
         width: fit-content;
         /* use clamp() */
-        padding: 16px 32px;
+        padding: clamp(10px, 0.83vw, 16px) clamp(16px, 1.66vw, 32px);
     }
+
 }
 
 /* subscription */
 .subscription {
     /* use clamp() */
-    border-radius: 28px;
-    padding: 75px 54px;
+    border-radius: clamp(14px, 1.45vw, 28px);
+    padding: clamp(25px, 3.9vw, 75px) clamp(18px, 2.81vw, 54px);
 
     background-color: rgba($blue-bg, .27);
     background-image: url(../images/subscriptiption-bg.png);
@@ -928,21 +1096,21 @@
     &__title {
         @include style-title;
         /* use clamp() */
-        margin-bottom: 16px;
+        margin-bottom: clamp(8px, 0.83vw, 16px);
     }
 
     &__text {
         @include style-text;
         /* use clamp() */
-        margin-bottom: 32px;
-        width: 507px;
+        margin-bottom: clamp(16px, 1.66vw, 32px);
+        width: clamp(253px, 26.4vw, 507px);
     }
 
     &__input-box {
         /* use clamp() */
-        padding: 7px 12px 7px 31px;
-        width: 661px;
-        border-radius: 14px;
+        padding: clamp(3px, 0.36vw, 7px) clamp(6px, 0.625vw, 12px) clamp(3px, 0.36vw, 7px) clamp(15px, 1.61vw, 31px);
+        width: clamp(250px, 34.42vw, 661px);
+        border-radius: clamp(7px, 0.729vw, 14px);
 
         border: 1px solid $grey-ultra;
         background-color: $grey-medium;
@@ -956,16 +1124,16 @@
 
         @include hauora-400;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 16px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(14px, 0.937vw, 18px);
         color: $white;
         outline: none;
 
         &::placeholder {
             @include hauora-400;
             /* use clamp() */
-            font-size: 16px;
-            line-height: 16px;
+            font-size: clamp(12px, 0.83vw, 16px);
+            line-height: clamp(14px, 0.937vw, 18px);
             color: $white;
         }
     }
@@ -981,47 +1149,47 @@
 
     &__inner {
         /* use clamp() */
-        padding: 50px 28px;
+        padding: clamp(25px, 2.6vw, 50px) 0px;
 
         display: flex;
-        gap: 74px;
+        gap: clamp(20px, 3.85vw, 74px);
     }
 
     &__info {
-        width: 375px;
+        width: clamp(182px, 19.5vw, 375px);
     }
 
     &__info-logo-link {
         display: inline-block;
         /* use clamp() */
-        margin-bottom: 17px;
+        margin-bottom: clamp(8px, 0.88vw, 17px);
     }
 
     &__os {
         /* use clamp() */
-        margin-bottom: 28px;
+        margin-bottom: clamp(14px, 1.45vw, 28px);
     }
 
     &__info-title {
         @include gradient-text;
         @include inter-700;
         /* use clamp() */
-        font-size: 20px;
-        line-height: 21px;
-        margin-bottom: 22px;
+        font-size: clamp(16px, 1.04vw, 20px);
+        line-height: clamp(17px, 1.09vw, 21px);
+        margin-bottom: clamp(11px, 1.14vw, 22px);
     }
 
     &__info-box {
         @include flex-space-between-center;
         /* use clamp() */
-        padding: 6px 5px 6px 24px;
+        padding: clamp(3px, 0.31vw, 6px) clamp(2px, 0.26vw, 5px) clamp(3px, 0.31vw, 6px) clamp(12px, 1.25vw, 24px);
         border: 1px solid $grey-ultra;
         background-color: $grey-ease-light;
         box-shadow: 0px 4px 41px 0px rgba($black, 0.13);
         backdrop-filter: blur(2px);
         /* use clamp() */
-        border-radius: 8px;
-        margin-bottom: 18px;
+        border-radius: clamp(4px, 0.41vw, 8px);
+        margin-bottom: clamp(9px, 0.93vw, 18px);
     }
 
     &__info-input {
@@ -1032,15 +1200,15 @@
 
         @include hauora-400;
         /* use clamp() */
-        font-size: 14px;
-        line-height: 14px;
+        font-size: clamp(12px, 0.729vw, 14px);
+        line-height: clamp(12px, 0.729vw, 14px);
         color: $white;
 
         &::placeholder {
             @include hauora-400;
             /* use clamp() */
-            font-size: 14px;
-            line-height: 14px;
+            font-size: clamp(12px, 0.729vw, 14px);
+            line-height: clamp(12px, 0.729vw, 14px);
             color: $white;
         }
     }
@@ -1048,10 +1216,10 @@
     &__info-link {
         @include hauora-700;
         /* use clamp() */
-        font-size: 12px;
-        line-height: 12px;
-        padding: 8px 21px;
-        border-radius: 66px;
+        font-size: clamp(10px, 0.625vw, 12px);
+        line-height: clamp(10px, 0.625vw, 12px);
+        padding: clamp(4px, 0.416vw, 8px) clamp(10px, 1.09vw, 21px);
+        border-radius: clamp(33px, 3.437vw, 66px);
 
         color: $white;
         background-color: $accent;
@@ -1066,8 +1234,8 @@
     &__info-text {
         @include hauora-400;
         /* use clamp() */
-        font-size: 12px;
-        line-height: 18px;
+        font-size: clamp(10px, 0.625vw, 12px);
+        line-height: clamp(14px, 0.93vw, 18px);
 
         color: $grey-ultra-ease;
     }
@@ -1075,20 +1243,20 @@
     &__menu {
         display: flex;
         /* use clamp() */
-        gap: 47px;
+        gap: clamp(23px, 2.44vw, 47px);
     }
 
     &__menu-inner {
         /* use clamp() */
-        width: 170px;
+        width: clamp(120px, 8.854vw, 170px);
     }
 
     &__menu-title {
         @include hauora-800;
         /* use clamp() */
-        font-size: 18px;
-        line-height: 20px;
-        margin-bottom: 32px;
+        font-size: clamp(14px, 0.937vw, 18px);
+        line-height: clamp(16px, 1.04vw, 20px);
+        margin-bottom: clamp(16px, 1.66vw, 32px);
 
         color: $white;
     }
@@ -1096,21 +1264,21 @@
     &__menu-items {
         @include flex-column;
         /* use clamp() */
-        gap: 18px;
+        gap: clamp(10px, 0.937vw, 18px);
     }
 
     &__menu-link {
         @include hauora-400;
         /* use clamp() */
-        font-size: 14px;
-        line-height: 15px;
+        font-size: clamp(12px, 0.729vw, 14px);
+        line-height: clamp(13px, 0.78vw, 15px);
 
         color: $grey-ultra-ease;
     }
 
     &__copy {
         /* use clamp() */
-        padding: 16px 0 20px;
+        padding: clamp(10px, 0.83vw, 16px) 0 clamp(14px, 1.04vw, 20px);
 
         border-top: 1px solid $black-bg;
         @include flex-space-between-center;
@@ -1120,11 +1288,10 @@
     &__author {
         @include hauora-400;
         /* use clamp() */
-        font-size: 12px;
-        line-height: 12px;
+        font-size: clamp(8px, 0.625vw, 12px);
+        line-height: clamp(8px, 0.625vw, 12px);
 
-        color: $white;
-        opacity: .8;
+        @include text-color;
     }
 }
 
@@ -1132,7 +1299,8 @@
 .reward {
     /* use clamp() */
     height: 1007px;
-    padding: 110px 0 79px;
+    /**/
+    padding: clamp(55px, 5.729vw, 110px) 0 clamp(39px, 4.11vw, 79px);
 
     background-image: url(../images/reward-bg.png);
     background-repeat: no-repeat;
@@ -1140,56 +1308,56 @@
 
     &__inner {
         display: flex;
-        gap: 75px;
-        margin-bottom: 56px;
+        gap: clamp(37px, 3.9vw, 75px);
+        margin-bottom: clamp(28px, 2.9vw, 56px);
     }
 
     &__info {
         /* use clamp() */
-        padding-top: 78px;
-        width: 495px;
+        padding-top: clamp(39px, 4.06vw, 78px);
+        width: clamp(247px, 25.78vw, 495px);
     }
 
     &__info-title {
         @include style-title;
         /* use clamp() */
-        margin-bottom: 16px;
+        margin-bottom: clamp(8px, 0.83vw, 16px);
     }
 
     &__info-text {
         @include style-text;
         /* use clamp() */
-        margin-bottom: 27px;
+        margin-bottom: clamp(13px, 1.4vw, 27px);
     }
 
     &__price {
         /* use clamp() */
-        width: 444px;
+        width: clamp(222px, 23.125vw, 444px);
     }
 
     &__info-description {
         /* use clamp() */
-        width: 354px;
-        margin-bottom: 19px;
+        width: clamp(177px, 18.43vw, 354px);
+        margin-bottom: clamp(9px, 0.98vw, 19px);
 
         color: $grey;
         @include hauora-400;
 
         /* use clamp() */
-        font-size: 12px;
-        line-height: 18px;
+        font-size: clamp(11px, 0.625vw, 12px);
+        line-height: clamp(17px, 0.937vw, 18px);
     }
 
     &__info-btn {
         /* use clamp() */
-        padding: 6px 19px;
+        padding: clamp(3px, 0.31vw, 6px) clamp(9px, 0.98vw, 19px);
         border-radius: 37px;
 
         background-color: $blue-light;
         @include hauora-400;
         /* use clamp() */
-        font-size: 12px;
-        line-height: 14px;
+        font-size: clamp(11px, 0.625vw, 12px);
+        line-height: clamp(12px, 0.729vw, 14px);
 
         color: $white;
         text-transform: uppercase;
@@ -1197,7 +1365,7 @@
 
     &__price-total {
         /* use clamp() */
-        padding: 29px 35px;
+        padding: clamp(14px, 1.51vw, 29px) clamp(17px, 1.82vw, 35px);
 
         @include flex-column;
         gap: 3px;
@@ -1212,35 +1380,35 @@
         @include hauora-400;
         @include text-color;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 16px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(12px, 0.83vw, 16px);
     }
 
     &__price-total-number {
         @include inter-700;
         /* use clamp() */
-        font-size: 42px;
-        line-height: 43px;
+        font-size: clamp(20px, 2.187vw, 42px);
+        line-height: clamp(21px, 2.23vw, 43px);
 
         color: $white;
     }
 
     &__price-precent {
         /* use clamp() */
-        padding: 16px 0 18px;
+        padding: clamp(8px, 0.83vw, 16px) 0 clamp(9px, 0.937vw, 18px);
 
         @include hauora-700;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 18px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(14px, 0.937vw, 18px);
         color: $white;
         text-align: right;
     }
 
     &__price-statistics {
         /* use clamp() */
-        padding: 25px 32px 39px;
-        border-radius: 8px;
+        padding: clamp(17px, 1.3vw, 25px) clamp(16px, 1.66vw, 32px) clamp(19px, 2vw, 39px);
+        border-radius: clamp(4px, 0.41vw, 8px);
 
         background-color: $black-medium;
         box-shadow: 0px 4px 59px 0px rgba($black, 0.51);
@@ -1248,14 +1416,14 @@
 
         @include flex-column;
         /* use clamp() */
-        gap: 23px;
+        gap: clamp(11px, 1.19vw, 23px);
     }
 
     &__price-statistics-item {
         @include flex-space-between-center;
         /* use clamp() */
         gap: 10px;
-        padding-bottom: 16px;
+        padding-bottom: clamp(8px, 0.83vw, 16px);
 
         border-bottom: 1px solid $grey-light;
 
@@ -1268,8 +1436,8 @@
     &__price-statistics-title {
         @include hauora-400;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 16px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(12px, 0.83vw, 16px);
 
         color: $white;
     }
@@ -1277,8 +1445,8 @@
     &__price-statistics-number {
         @include hauora-800;
         /* use clamp() */
-        font-size: 20px;
-        line-height: 22px;
+        font-size: clamp(16px, 1.04vw, 20px);
+        line-height: clamp(18px, 1.145vw, 22px);
 
         color: transparent;
         background: linear-gradient(150deg, $accent 36.58%, $purple-ease 131.64%);
@@ -1289,13 +1457,13 @@
     &__masternodes {
         @include flex-space-between;
         /* use clamp() */
-        gap: 30px;
+        gap: clamp(15px, 1.56vw, 30px);
     }
 
     &__masternodes-item {
         /* use clamp() */
-        width: 540px;
-        padding: 48px 37px;
+        width: clamp(260px, 28.12vw, 540px);
+        padding: clamp(24px, 2.5vw, 48px) clamp(18px, 1.92vw, 37px);
         border-radius: 16px;
         border: 1px solid $grey-ultra;
         background-color: $black-light;
@@ -1308,8 +1476,8 @@
             top: 0;
             left: 0;
             /* use clamp() */
-            width: 372px;
-            height: 199px;
+            width: clamp(186px, 19.375vw, 372px);
+            height: clamp(99px, 10.36vw, 199px);
             background-image: url(../images/shadow-blue-decor-bg.svg);
         }
     }
@@ -1321,8 +1489,8 @@
             content: '';
             position: absolute;
             background-image: url(../images/cold-stake-bg.png);
-            width: 191px;
-            height: 254px;
+            width: clamp(95px, 9.94vw, 191px);
+            height: clamp(127px, 13.22vw, 254px);
             right: 0;
             bottom: 0;
             background-image: url(../images/cold-stake-bg.png);
@@ -1335,8 +1503,8 @@
         &::after {
             content: '';
             position: absolute;
-            width: 270px;
-            height: 253px;
+            width: clamp(135px, 14vw, 270px);
+            height: clamp(126px, 13.17vw, 253px);
             right: 0;
             bottom: 0;
             background-image: url(../images/masternode-stake-bg.png);
@@ -1347,35 +1515,35 @@
         @include hauora-600;
         @include text-color;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 32px;
-        margin-bottom: 6px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(16px, 1.66vw, 32px);
+        margin-bottom: clamp(4px, 0.3vw, 6px);
     }
 
     &__masternodes-item-title {
         @include style-small-title;
-        margin-bottom: 16px;
+        margin-bottom: clamp(8px, 0.83vw, 16px);
     }
 
     &__masternodes-item-text {
         /* use clamp() */
-        width: 332px;
+        width: clamp(166px, 17.29vw, 332px);
         @include hauora-400;
         @include text-color;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 16px;
-        margin-bottom: 24px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(12px, 0.83vw, 16px);
+        margin-bottom: clamp(12px, 1.25vw, 24px);
     }
 
     &__masternodes-item-btn {
         display: inline-block;
         @include hauora-700;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 16px;
-        padding: 14px 24px 14px 64px;
-        border-radius: 12px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(12px, 0.83vw, 16px);
+        padding: clamp(7px, 0.72vw, 14px) clamp(12px, 1.25vw, 24px) clamp(7px, 0.72vw, 14px) clamp(32px, 3.33vw, 64px);
+        border-radius: clamp(6px, 0.625vw, 12px);
 
         color: $white;
         background-color: $accent;
@@ -1391,10 +1559,10 @@
             content: '';
             position: absolute;
             /* use clamp() */
-            width: 24px;
-            height: 24px;
+            width: clamp(12px, 1.25vw, 24px);
+            height: clamp(12px, 1.25vw, 24px);
             top: 50%;
-            left: 24px;
+            left: clamp(12px, 1.25vw, 24px);
 
             transform: translateY(-50%);
             background-repeat: no-repeat;
@@ -1417,7 +1585,7 @@
 
 .doc {
     /* use clamp() */
-    padding: 50px 0 100px;
+    padding: clamp(25px, 2.6vw, 50px) 0 clamp(50px, 5.2vw, 100px);
 
     background-color: $black-bg;
 
@@ -1425,14 +1593,14 @@
         @include flex-column;
         align-items: center;
         /* use clamp() */
-        gap: 66px;
+        gap: clamp(33px, 3.437vw, 66px);
     }
 
     &__description {
         @include flex-column;
         align-items: center;
         /* use clamp() */
-        gap: 16px;
+        gap: clamp(8px, 0.83vw, 16px);
     }
 
     &__description-title {
@@ -1444,23 +1612,23 @@
         @include text-color;
         text-align: center;
         /* use clamp() */
-        font-size: 18px;
-        line-height: 32px;
-        width: 492px;
+        font-size: clamp(14px, 0.93vw, 18px);
+        line-height: clamp(18px, 1.66vw, 32px);
+        width: clamp(246px, 25.6vw, 492px);
     }
 
     &__items {
         @include flex-space-between-center;
         /* use clamp() */
-        gap: 44px;
+        gap: clamp(22px, 2.29vw, 44px);
     }
 
     &__item {
         background-color: $bg;
         /* use clamp() */
-        width: 365px;
-        border-radius: 8px;
-        padding: 33px 28px 23px;
+        width: clamp(182px, 19vw, 365px);
+        border-radius: clamp(4px, 0.41vw, 8px);
+        padding: clamp(16px, 1.718vw, 33px) clamp(14px, 1.45vw, 28px) clamp(11px, 1.19vw, 23px);
 
         border: 1px solid transparent;
         transition: all .15s ease-in-out;
@@ -1477,8 +1645,8 @@
         &::before {
             content: '';
             position: absolute;
-            width: 122px;
-            height: 116px;
+            width: clamp(61px, 6.35vw, 122px);
+            height: clamp(58px, 6vw, 116px);
             right: 0;
             bottom: 0;
         }
@@ -1486,22 +1654,22 @@
 
     &__item-title {
         /* use clamp() */
-        width: 220px;
-        margin-bottom: 14px;
+        width: clamp(110px, 11.45vw, 220px);
+        margin-bottom: clamp(7px, 0.729vw, 14px);
         @include style-small-title
     }
 
     &__item-text {
         @include style-medium-text;
         /* use clamp() */
-        margin-bottom: 27px;
+        margin-bottom: clamp(13px, 1.4vw, 27px);
     }
 
     &__item-link {
         @include style-medium-text;
         text-decoration: underline;
         /* use clamp() */
-        padding: 3px 45px 3px 0;
+        padding: 3px clamp(23px, 2.34vw, 45px) 3px 0;
 
         position: relative;
 
@@ -1512,8 +1680,8 @@
             right: 0;
             transform: translateY(-50%);
             /* use clamp() */
-            width: 24px;
-            height: 24px;
+            width: clamp(12px, 1.25vw, 24px);
+            height: clamp(12px, 1.25vw, 24px);
             background-image: url(../images/doc-link-icon.svg);
         }
     }
@@ -1522,18 +1690,18 @@
 .faq {
     background-color: $black-bg;
     /* use clamp() */
-    padding: 61px 0 49px;
+    padding: clamp(30px, 3.17vw, 61px) 0 clamp(24px, 2.55vw, 49px);
 
     &__inner {
         @include flex-space-between;
         /* use clamp() */
-        gap: 17px;
+        gap: clamp(12px, 0.88vw, 17px);
     }
 
     &__categories-title {
         /* use clamp() */
-        width: 443px;
-        margin-bottom: 34px;
+        width: clamp(221px, 23vw, 443px);
+        margin-bottom: clamp(17px, 1.77vw, 34px);
 
         @include style-title;
     }
@@ -1541,9 +1709,9 @@
     &__categories-description {
         @include hauora-400;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 18px;
-        margin-bottom: 22px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(14px, 0.93vw, 18px);
+        margin-bottom: clamp(11px, 1.145vw, 22px);
 
         color: $grey;
     }
@@ -1557,11 +1725,11 @@
     &__categories-item {
         @include hauora-700;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 18px;
-        padding: 23px 35px 22px 26px;
-        border-radius: 8px;
-        width: 365px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(14px, 0.93vw, 18px);
+        padding: clamp(11px, 1.197vw, 23px) clamp(17px, 1.82vw, 35px) clamp(11px, 1.14vw, 22px) clamp(13px, 1.35vw, 26px);
+        border-radius: clamp(4px, 0.41vw, 8px);
+        width: clamp(182px, 19vw, 365px);
 
         color: $white;
         cursor: pointer;
@@ -1575,7 +1743,7 @@
             position: absolute;
             /* use clamp() */
             top: 50%;
-            right: 13px;
+            right: clamp(6px, 0.67vw, 13px);
             transform: translateY(-50%);
             /* use clamp() */
             width: 9px;
@@ -1599,9 +1767,9 @@
     &__questions-licenses,
     &__questions-instructions {
         /* use clamp() */
-        width: 665px;
-        padding: 20px 33px 35px;
-        border-radius: 8px;
+        width: clamp(280px, 34.635vw, 665px);
+        padding: clamp(10px, 1.04vw, 20px) clamp(16px, 1.71vw, 33px) clamp(17px, 1.82vw, 35px);
+        border-radius: clamp(4px, 0.41vw, 8px);
 
         height: fit-content;
 
@@ -1609,7 +1777,7 @@
         box-shadow: 0px 4px 59px 0px rgba($black, 0.51);
         backdrop-filter: blur(15.5px);
         /* use clamp() */
-        gap: 16px;
+        gap: clamp(10px, 0.83vw, 16px);
     }
 
     &__questions-finance-box {
@@ -1625,9 +1793,10 @@
 
         @include hauora-700;
         /* use clamp() */
-        font-size: 16px;
-        line-height: 18px;
-        padding: 24px 9px 16px 9px;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(14px, 0.93vw, 18px);
+        padding:
+            clamp(12px, 1.25vw, 24px) clamp(4px, 0.46vw, 9px) clamp(8px, 0.83vw, 16px) 9px;
         color: $white;
         transition: all .15s ease-in-out;
 
@@ -1639,7 +1808,7 @@
     &__question-finance-text {
         @include text-box;
         /* use clamp() */
-        padding: 16px 0 16px;
+        padding: clamp(8px, 0.83vw, 16px) 0 clamp(8px, 0.83vw, 16px);
         transition: all .5s ease;
     }
 
@@ -1657,5 +1826,434 @@
 .proof-subscription {
     background-color: $black-bg;
     /* use clamp() */
-    padding: 135px 0 80px;
+    padding: clamp(67px, 7vw, 135px) 0 clamp(40px, 4.16vw, 80px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1800px) {
+    .header {
+        &__content {
+            height: 1128px;
+        }
+    }
+}
+
+
+
+@media (max-width: 1700px) {
+    .header {
+        &__option-top {
+            justify-content: center;
+        }
+
+        &__option-bottom {
+            justify-content: center;
+        }
+    }
+
+    .faq {
+        &__inner {
+            justify-content: center;
+        }
+    }
+
+
+    .reward {
+        height: 900px;
+
+        &__inner {
+            justify-content: center;
+        }
+
+        &__masternodes {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .header {
+        &__content {
+            height: 1023px;
+        }
+    }
+}
+
+@media (max-width: 1500px) {
+    .reward {
+        height: 800px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .header {
+        &__content {
+            height: 940px;
+        }
+
+        &__content-index {
+            height: 840px;
+        }
+    }
+
+    .reward {
+        height: 750px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .partners {
+        &__inner {
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__info-text {
+            text-align: center;
+        }
+    }
+
+    .wallet {
+        &__inner {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+@media (max-width: 1150px) {
+    .swiper-button-prev {
+        left: 43%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 43%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .header {
+        &__content {
+            height: 900px;
+        }
+
+        &__content-index {
+            height: 800px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .swiper-button-prev {
+        left: 40%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 40%;
+        bottom: 0;
+    }
+}
+
+
+@media (max-width: 850px) {
+    .header {
+        &__option-inner {
+            height: 1225px;
+        }
+
+        &__content-index {
+            height: 720px;
+        }
+
+        &__nav-items {
+            flex-direction: column;
+            position: absolute;
+            top: 6.296vh;
+            right: 0;
+            left: 0;
+            background: linear-gradient(267deg, $green-dark 36.58%, $blue-dark 80.91%);
+            background-size: 150vw;
+            animation: header-bg 7s ease-in-out infinite;
+
+            transform: translateY(-130%);
+            transition: all .5s ease;
+
+            &--active {
+                transform: translateY(0%);
+            }
+        }
+
+        &__nav-item {
+            padding: 10px 0 10px;
+        }
+
+        &__menu-btn {
+            display: flex;
+        }
+
+        &__menu-btn-span {
+            display: flex;
+        }
+
+        &__nav-link {
+            color: $white;
+        }
+
+        &__option-top {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__option-bottom {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__option-top-description {
+            text-align: center;
+            align-items: center;
+        }
+
+        &__content-option {
+            overflow: hidden;
+        }
+    }
+
+
+}
+
+@media (max-width: 700px) {
+    .swiper-button-prev {
+        left: 36%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 36%;
+        bottom: 0;
+    }
+
+    .wallet {
+        &__inner {
+            flex-direction: column;
+        }
+
+        &__info-title {
+            text-align: center;
+        }
+
+        &__info-description {
+            text-align: center;
+        }
+
+        &__info-os {
+            @include flex-center-center;
+        }
+
+        &__download-box {
+            @include flex-center-center;
+        }
+    }
+
+    .ready {
+        &__direction {
+            flex-direction: column;
+        }
+    }
+
+    .footer {
+        &__os {
+            display: none;
+        }
+
+        &__info-title {
+            display: none;
+        }
+
+        &__info-box {
+            display: none;
+        }
+
+        &__inner {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__info-logo-link {
+            @include flex-center-center;
+        }
+
+        &__info-text {
+            text-align: center;
+        }
+
+        &__menu {
+            justify-content: space-between;
+        }
+
+        &__menu-title {
+            text-align: center;
+        }
+
+        &__menu-items {
+            text-align: center;
+        }
+    }
+
+    .doc {
+        &__items {
+            flex-direction: column;
+        }
+    }
+
+    .faq {
+        &__inner {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__categories-title {
+            text-align: center;
+        }
+    }
+
+
+}
+
+@media (max-width: 600px) {
+    .reward {
+        height: 1202px;
+
+        &__inner {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__info {
+            @include flex-column;
+            align-items: center;
+        }
+
+        &__masternodes {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__info-title {
+            text-align: center;
+        }
+
+        &__info-text {
+            text-align: center;
+        }
+
+        &__info-description {
+            text-align: center;
+        }
+
+
+    }
+}
+
+@media (max-width: 520px) {
+    .header {
+        &__option-inner {
+            position: relative;
+            overflow: hidden;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 33%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 33%;
+        bottom: 0;
+    }
+
+    .footer {
+        &__menu {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 410px) {
+    .header {
+        &__content-info-wrapper {
+            justify-content: flex-start;
+        }
+
+        &__content-img-box {
+            display: none;
+        }
+
+        &__content-index {
+            height: 660px;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 30%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 30%;
+        bottom: 0;
+    }
+
+}
+
+@media (max-width: 360px) {
+    .swiper-button-prev {
+        left: 28%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 28%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 330px) {
+    .swiper-button-prev {
+        left: 26%;
+        bottom: 0;
+    }
+
+    .swiper-button-next {
+        right: 26%;
+        bottom: 0;
+    }
 }
