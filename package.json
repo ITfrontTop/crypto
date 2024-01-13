@@ -25,5 +25,9 @@
     "gulp-webp": "^4.0.1",
     "sass": "^1.59.3",
     "swiper": "^9.4.1"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "save-dev": "^0.0.1-security"
   }
 }

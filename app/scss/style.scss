@@ -6,6 +6,8 @@
 @import 'libs';
 
 
+
+
 :root {
     --index: calc(1vw + 1vh);
     /*
@@ -150,8 +152,6 @@
         &:active {
             color: $accent;
         }
-
-
     }
 
     /* color text last-child */
@@ -666,6 +666,142 @@
         @include text-box;
         text-align: center;
     }
+
+    /* shield header page */
+    &__shield {
+        height: 1300px;
+    }
+
+    &__content-inner-shield {
+        position: relative;
+
+        &::before {
+            content: 'Increase';
+            position: absolute;
+            /* use clamp() */
+            top: 46%;
+            left: 50%;
+
+            transform: translateX(-50%);
+            @include style-background-text;
+        }
+    }
+
+    &__content-text-shield {
+        width: 420px;
+    }
+
+    &__content-img-shield {
+        width: 331px;
+        height: 437px;
+    }
+
+    &__shield-img-box {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            right: -50%;
+            top: 58%;
+            transform: translateY(-50%);
+            background-image: url(../images/shield-header-img-bg.png);
+            width: 425px;
+            height: 452px;
+            z-index: -1;
+        }
+    }
+
+    &__shield-info-inner {
+        @include flex-center-center;
+    }
+
+    &__shield-info {
+        width: 1267px;
+        padding: clamp(53px, 5.57vw, 107px) clamp(39px, 4vw, 78px) clamp(29px, 3vw, 58px);
+        /*margin-bottom: clamp(21px, 2.187vw, 42px);*/
+
+        border-radius: clamp(8px, 0.83vw, 16px);
+
+        border: 1px solid $grey-ultra;
+        background-color: $black-light;
+        backdrop-filter: blur(8.5px);
+
+        background-image: url(../images/shield-decor-bg.png);
+        background-repeat: no-repeat;
+        background-position: top right;
+        position: relative;
+
+        @include flex-space-between;
+        gap: 125px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url(../images/wave-bg.svg);
+            /* use clamp() */
+            width: clamp(719px, 74.94vw, 1439px);
+            height: clamp(156px, 16.3vw, 313px);
+
+            /*bottom: clamp(-15px, 1.562vw, -30px);*/
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 660px;
+            height: 283px;
+            background-image: url(../images/shield-decor-blue-bg.png);
+            background-repeat: no-repeat;
+            bottom: 0;
+            left: 20%;
+            z-index: -1;
+        }
+    }
+
+    &__shield-info-items {
+        width: 540px;
+        display: grid;
+        grid-template-columns: repeat(2, 255px);
+        grid-template-rows: repeat(2, 202px);
+        column-gap: 30px;
+        row-gap: 55px;
+    }
+
+    &__shield-info-item {
+        width: 255px;
+    }
+
+    &__shield-info-description {
+        width: clamp(222px, 23.17vw, 445px);
+    }
+
+    &__shield-info-description-title {
+        @include style-title;
+        margin-bottom: 16px;
+    }
+
+    &__shield-info-description-text {
+        @include style-text;
+    }
+
+    &__shield-info-item-img {
+        margin-bottom: 8px;
+    }
+
+    &__shield-info-item-title {
+        @include subtitle-box;
+        margin-bottom: 16px;
+    }
+
+    &__shield-info-item-text {
+        @include text-box;
+    }
+
 }
 
 /* slider */
@@ -2015,6 +2151,445 @@
 }
 
 
+.conf {
+    background-color: $black-bg;
+    padding: 53px 0px 0px;
+
+    &__inner {
+        @include flex-center-center;
+    }
+
+    &__info {
+        width: 600px;
+    }
+
+    &__info-title {
+        @include style-title;
+        margin-bottom: 29px;
+    }
+
+    &__info-text {
+        @include style-text;
+    }
+
+    &__img-box {
+        width: 595px;
+        height: 464px;
+        position: relative;
+    }
+
+    &__bg-box {
+        position: absolute;
+        top: -10px;
+        right: -90px;
+        width: 461px;
+        height: 464px;
+    }
+
+    &__circle-small-img-box {
+        position: absolute;
+        top: 144px;
+        right: 24px;
+        width: 10px;
+        height: 10px;
+    }
+
+    &__circle-big-img-box {
+        position: absolute;
+        top: 66px;
+        right: 88px;
+        width: 152px;
+        height: 152px;
+    }
+
+    &__square-small-img-box {
+        position: absolute;
+        top: 53px;
+        right: 90px;
+        width: 6px;
+        height: 6px;
+    }
+
+    &__square-medium-img-box {
+        position: absolute;
+        top: 0px;
+        right: 150px;
+        width: 11px;
+        height: 11px;
+    }
+
+    &__cross-img-box1 {
+        position: absolute;
+        top: 21px;
+        right: 370px;
+        width: 9px;
+        height: 9px;
+    }
+
+    &__cross-img-box2 {
+        position: absolute;
+        top: 61px;
+        right: 423px;
+        width: 9px;
+        height: 9px;
+    }
+
+    &__circle-medium-big-box {
+        position: absolute;
+        top: 286px;
+        right: 476px;
+        width: 46px;
+        height: 46px;
+    }
+
+    &__circle-small-medium-box {
+        position: absolute;
+        top: 369px;
+        right: 81px;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__cross-img-box3 {
+        position: absolute;
+        top: 365px;
+        right: 49px;
+        width: 9px;
+        height: 9px;
+    }
+
+    &__gear-small-img-box {
+        position: absolute;
+        top: 77px;
+        right: 38px;
+        width: 83px;
+        height: 83px;
+    }
+
+    &__gear-big-img-box {
+        position: absolute;
+        top: 43px;
+        right: 259px;
+        width: 182px;
+        height: 178px;
+    }
+
+    &__leaf-left-img-box1 {
+        position: absolute;
+        top: 156px;
+        right: 27px;
+        width: 74px;
+        height: 167px;
+    }
+
+    &__leaf-left-img-box2 {
+        position: absolute;
+        top: 210px;
+        right: 0px;
+        width: 112px;
+        height: 121px;
+    }
+
+    &__leaf-right-img-box1 {
+        position: absolute;
+        top: 157px;
+        right: 381px;
+        width: 77px;
+        height: 173px;
+    }
+
+    &__leaf-right-img-box2 {
+        position: absolute;
+        top: 210px;
+        right: 377px;
+        width: 112px;
+        height: 122px;
+    }
+
+
+    &__frame-img-box {
+        position: absolute;
+        top: 107px;
+        right: 68px;
+        width: 345px;
+        height: 232px;
+    }
+
+    &__screen-img-box {
+        position: absolute;
+        top: 121px;
+        right: 82px;
+        width: 315px;
+        height: 196px;
+    }
+
+
+    &__screen-diag-img-box {
+        position: absolute;
+        top: 121px;
+        right: 167px;
+        width: 229px;
+        height: 195px;
+    }
+
+    &__keyboard-img-box {
+        position: absolute;
+        top: 329px;
+        right: 23px;
+        width: 431px;
+        height: 20px;
+    }
+
+    &__keyboard-down-img-box {
+        position: absolute;
+        top: 339px;
+        right: 24px;
+        width: 431px;
+        height: 11px;
+    }
+
+    &__keyboard-top-img-box {
+        position: absolute;
+        top: 339px;
+        right: 189px;
+        width: 99px;
+        height: 4px;
+    }
+
+    &__screen-page-img-box {
+        position: absolute;
+        top: 173px;
+        right: 195px;
+        width: 91px;
+        height: 94px;
+    }
+}
+
+
+.save {
+    background-image: url(../images/save-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 70px 0 50px;
+
+    height: 908px;
+
+    &__title {
+        @include style-title;
+        margin-bottom: 50px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 534px);
+        grid-template-rows: repeat(2, 306px);
+        gap: 30px;
+    }
+
+    &__item {
+        border-radius: 8px;
+        border: 1px solid $grey-light;
+        background: $black-medium;
+        box-shadow: 0px 4px 59px 0px rgba($black, 0.51);
+        backdrop-filter: blur(15.5px);
+        padding: 33px 35px 53px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__item-img-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+        width: 126px;
+    }
+
+    &__item-image-inner {
+        margin-left: -11px;
+    }
+
+    &__item-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 43px;
+    }
+
+    &__item-title {
+        @include style-small-title;
+    }
+
+    &__item-img-title {
+        @include hauora-700;
+        font-size: 16px;
+        line-height: 18px;
+        color: $white;
+        text-align: center;
+    }
+}
+
+.save-info {
+    background-color: $black-bg;
+    padding: 120px 0 95px;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 1447px;
+        height: 486px;
+        background-image: url(../images/save-info-decor-right.svg);
+        top: 13%;
+        right: -15%;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 1447px;
+        height: 486px;
+        background-image: url(../images/save-info-decor-left.svg);
+        background-repeat: no-repeat;
+        top: 20%;
+        left: 13%;
+    }
+
+
+    &__info {
+        @include flex-column;
+        align-items: center;
+        margin-bottom: 78px;
+    }
+
+    &__info-title {
+        @include style-title;
+        margin-bottom: 8px;
+    }
+
+    &__info-subtitle {
+        @include style-text;
+        margin-bottom: 16px;
+        ;
+    }
+
+    &__info-text {
+        @include style-text;
+        width: 711px;
+        text-align: center;
+    }
+
+    &__items {
+        @include flex-center-center;
+        gap: 28px;
+        margin-bottom: 137px;
+    }
+
+    &__item {
+        width: 540px;
+        height: 328px;
+        padding: 38px 56px 38px;
+        border-radius: 8px;
+        background: linear-gradient(163deg, #0D111B 9.85%, rgba(13, 17, 27, 0.00) 88.29%);
+        background-image: url(../images/save-info-item-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 131px;
+        @include flex-column;
+        align-items: center;
+    }
+
+    &__item-box {
+        @include flex-center-center;
+        gap: 20px;
+        margin-bottom: 42px;
+    }
+
+    &__item-image-inner {
+        width: 42px;
+        height: 39px;
+    }
+
+    &__item-operator {
+        width: 10px;
+        height: 17px;
+    }
+
+    &__item-title {
+        @include subtitle-box;
+        margin-bottom: 16px;
+    }
+
+    &__item-text {
+        @include text-box;
+        text-align: center;
+    }
+
+    &__description-title {
+        @include style-title;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    &__description-text {
+        @include style-text;
+        text-align: center;
+        margin-bottom: 56px;
+    }
+
+    &__description-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    &__description-item {
+        width: 530px;
+        @include style-text;
+    }
+}
+
+.save-dop {
+    height: 725px;
+    padding: 55px 0;
+    background-image: url(../images/save-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &__inner {
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 650px;
+            height: 725px;
+            background-image: url(../images/save-dop-item.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            right: 20%;
+            top: 0;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2033,6 +2608,7 @@
     .header {
         &__content {
             height: 1128px;
+
             &.header__cold-inner {
                 height: 1228px;
             }
@@ -2078,6 +2654,7 @@
     .header {
         &__content {
             height: 1023px;
+
             &.header__cold-inner {
                 height: 1023px;
             }
@@ -2099,6 +2676,7 @@
     .header {
         &__content {
             height: 940px;
+
             &.header__cold-inner {
                 height: 940px;
             }
@@ -2172,6 +2750,7 @@
     .header {
         &__content {
             height: 900px;
+
             &.header__cold-inner {
                 height: 900px;
             }
@@ -2197,6 +2776,7 @@
     .header {
         &__content {
             height: 760px;
+
             &.header__cold-inner {
                 height: 760px;
             }
