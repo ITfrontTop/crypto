@@ -212,7 +212,7 @@
     @include inter-700;
     /* use clamp() */
     font-size: clamp(20px, 2.187vw, 42px);
-    line-height: clamp(22px, 2.5vw, 48px);
+    line-height: clamp(21px, 2.5vw, 43px);
     @include gradient-text;
 }
 
