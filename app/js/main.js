@@ -108,3 +108,29 @@ const menuList = document.querySelector('.header__nav-items');
 btnMenu.addEventListener('click', () => {
     menuList.classList.toggle('header__nav-items--active');
 })
+
+// Запуск анимации при скроле
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollItems = document.querySelectorAll('section');
+    console.log(scrollItems)
+    const scrollAnimation = () => {
+        let windowCenter = (window.innerHeight / 2) + window.scrollY;
+        scrollItems.forEach(el => {
+            // Вычисляем чтобы выполнялись действия поцентру то в конце будет 2, а так будет ниже центра 4
+            let scrollOffset = el.offsetTop + (el.offsetHeight / 4);
+            // Если окно будет находить по центру то будет запускаться анимация
+            if (windowCenter >= scrollOffset) {
+                el.classList.add('animation-class')
+            } else {
+                el.classList.remove('animation-class')
+            }
+        });
+    };
+    scrollAnimation()
+
+    window.addEventListener('scroll', () => {
+        scrollAnimation()
+    });
+});
+
+
