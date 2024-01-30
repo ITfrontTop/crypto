@@ -1080,6 +1080,142 @@
             box-shadow: 0px 4px 16px 0px $blue-deep;
         }
     }
+
+
+    /* merchant page */
+    &__content-info-wrapper-merchant {
+        padding: clamp(40px, 2.76vw, 53px) 0 clamp(60px, 6.35vw, 122px);
+    }
+
+    &__content-info-merchant {
+        width: clamp(209px, 21.77vw, 418px);
+    }
+
+    &__content-title-merchant {
+        width: clamp(209px, 21.77vw, 418px);
+    }
+
+    &__content-text-merchant {
+        width: clamp(209px, 21.77vw, 418px);
+    }
+
+    &__content-img-merchant {
+        width: clamp(227px, 23.69vw, 455px);
+        height: clamp(265px, 27.65vw, 531px);
+    }
+
+    &__info-merchant {
+        display: grid;
+        grid-template-columns: repeat(2, clamp(290px, 27.86vw, 535px));
+        grid-template-rows: repeat(2, 1fr);
+        gap: clamp(15px, 1.56vw, 30px);
+        justify-content: center;
+    }
+
+    &__info-merchant-item {
+        border-radius: 16px;
+        border: 1px solid $grey-ultra;
+        background: $black-light;
+        backdrop-filter: blur(8.5px);
+        padding: 31px;
+    }
+
+    &__content.header__cold-inner {
+        &::before {
+            top: 44%;
+        }
+    }
+
+    &__info-merchant-title {
+        @include style-title;
+        width: clamp(187px, 19.5vw, 375px);
+        margin-bottom: clamp(8px, 0.83vw, 16px);
+    }
+
+    &__info-merchant-text {
+        @include style-text;
+    }
+
+    &__info-merchant {
+        padding-bottom: clamp(50px, 5.2vw, 100px);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url(../images/wave-bg.svg);
+            width: clamp(719px, 74.94vw, 1439px);
+            height: clamp(156px, 16.3vw, 313px);
+            bottom: clamp(-15px, 1.562vw, -30px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__info-merchant-item {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: clamp(30px, 2.18vw, 42px);
+            height: clamp(30px, 2.18vw, 42px);
+            border-radius: clamp(8px, 0.625vw, 12px);
+            background-color: $grey;
+            top: clamp(16px, 1.66vw, 32px);
+            right: clamp(16px, 1.66vw, 32px);
+        }
+    }
+
+    &__info-merchant-item1 {
+
+        &::before {
+            background-image: url(../images/open-code-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__info-merchant-item2 {
+        &::before {
+            background-image: url(../images/pay-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__info-merchant-item3 {
+        &::before {
+            background-image: url(../images/time-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__info-merchant-item-title {
+        @include subtitle-box;
+        margin-bottom: clamp(8px, 0.83vw, 16px);
+        width: clamp(200px, 14vw, 270px);
+    }
+
+    &__info-merchant-item-text {
+        @include hauora-400;
+        font-size: clamp(12px, 0.83vw, 16px);
+        line-height: clamp(14px, 0.93vw, 18px);
+        @include text-color;
+    }
+
+    &__info-merchant-item-text1 {
+        width: clamp(200px, 23.1vw, 444px);
+    }
+
+    &__info-merchant-item-text2 {
+        width: clamp(200px, 16.45vw, 316px);
+    }
+
+    &__info-merchant-item-text3 {
+        width: clamp(200px, 15.1vw, 291px);
+    }
 }
 
 /* slider */
@@ -2949,6 +3085,10 @@
         &__shield {
             height: 1220px;
         }
+
+        &__merchant {
+            height: 1180px;
+        }
     }
 
     .save {
@@ -2976,6 +3116,10 @@
 
         &__shield {
             height: 1160px;
+        }
+
+        &__merchant {
+            height: 1095px;
         }
     }
 
@@ -3025,6 +3169,10 @@
 
         &__shield {
             height: 1160px;
+        }
+
+        &__merchant {
+            height: 1015px;
         }
 
     }
@@ -3080,6 +3228,10 @@
 
         &__shield {
             height: 1060px;
+        }
+
+        &__merchant {
+            height: 940px;
         }
     }
 
@@ -3184,6 +3336,15 @@
 
         &__shield {
             height: 1180px;
+        }
+
+        &__info-merchant {
+            grid-template-columns: repeat(1, clamp(290px, 27.86vw, 535px));
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        &__merchant {
+            height: 1300px;
         }
     }
 
@@ -3563,6 +3724,14 @@
 
         &__shield {
             height: 1330px;
+        }
+
+        &__content-img-merchant {
+            display: none;
+        }
+
+        &__content-info-wrapper-merchant {
+            justify-content: flex-start;
         }
     }
 
